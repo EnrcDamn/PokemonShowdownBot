@@ -1,4 +1,5 @@
 ﻿import json
+import os
 
 def process_json(json_file, out_name):
     with open(json_file, 'r') as f:
@@ -27,7 +28,7 @@ def recursion_lower(data):
 
 if __name__ == "__main__":
     
-    GEN4 = "gen4randomteams_ORIGINAL.json"
+    GEN4 = os.path.join("Data", "gen4randomteams_ORIGINAL.json")
 
     process_json(json_file=GEN4, out_name="gen4randomteams.json")
     

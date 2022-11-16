@@ -1,10 +1,11 @@
 ﻿import json
+import os
 from VirtualPokemon import VirtualPokemon
 from ParseUtilities import parse_string
   
 class VirtualTeam:
     def __init__(self):
-        f = open("gen4randomteams.json")
+        f = open(os.path.join("Data", "gen4randomteams.json"))
         self.data = json.load(f)
         f.close()
         self.pokemon_team = []
