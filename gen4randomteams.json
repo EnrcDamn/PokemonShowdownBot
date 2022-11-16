@@ -1,0 +1,6557 @@
+{
+  "abomasnow": {
+    "level": 82,
+    "abilities": [
+      "snowwarning"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers"
+    ],
+    "moves": [
+      "blizzard",
+      "earthquake",
+      "energyball",
+      "hiddenpowerfire",
+      "iceshard",
+      "leechseed",
+      "substitute",
+      "woodhammer"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "absol": {
+    "level": 84,
+    "abilities": [
+      "pressure",
+      "superluck"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "nightslash",
+      "psychocut",
+      "pursuit",
+      "suckerpunch",
+      "superpower",
+      "swordsdance"
+    ]
+  },
+  "aerodactyl": {
+    "level": 80,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "rockslide",
+      "roost",
+      "stealthrock",
+      "stoneedge",
+      "taunt"
+    ]
+  },
+  "aggron": {
+    "level": 84,
+    "abilities": [
+      "rockhead"
+    ],
+    "items": [
+      "choiceband",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquatail",
+      "earthquake",
+      "headsmash",
+      "icepunch",
+      "lowkick",
+      "rockpolish"
+    ]
+  },
+  "alakazam": {
+    "level": 84,
+    "abilities": [
+      "innerfocus",
+      "synchronize"
+    ],
+    "items": [
+      "choicespecs",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "encore",
+      "focusblast",
+      "hiddenpowerfire",
+      "psychic",
+      "shadowball",
+      "signalbeam",
+      "substitute",
+      "trick"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "altaria": {
+    "level": 84,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb",
+      "lumberry"
+    ],
+    "moves": [
+      "dragonclaw",
+      "dragondance",
+      "earthquake",
+      "fireblast",
+      "healbell",
+      "outrage",
+      "roost"
+    ]
+  },
+  "ambipom": {
+    "level": 84,
+    "abilities": [
+      "technician"
+    ],
+    "items": [
+      "choiceband",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "fakeout",
+      "lowkick",
+      "payback",
+      "pursuit",
+      "return",
+      "uturn"
+    ]
+  },
+  "ampharos": {
+    "level": 88,
+    "abilities": [
+      "static"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "discharge",
+      "focusblast",
+      "hiddenpowerice",
+      "signalbeam",
+      "substitute",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "arbok": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquatail",
+      "crunch",
+      "earthquake",
+      "glare",
+      "gunkshot",
+      "poisonjab",
+      "seedbomb",
+      "switcheroo"
+    ]
+  },
+  "arcanine": {
+    "level": 84,
+    "abilities": [
+      "flashfire",
+      "intimidate"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "extremespeed",
+      "flareblitz",
+      "hiddenpowergrass",
+      "morningsun",
+      "thunderfang",
+      "toxic",
+      "willowisp"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "arceus": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "extremespeed",
+      "recover",
+      "shadowclaw",
+      "swordsdance"
+    ]
+  },
+  "arceusbug": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "insectplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "icebeam",
+      "judgment",
+      "recover"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusdark": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "dreadplate"
+    ],
+    "moves": [
+      "calmmind",
+      "focusblast",
+      "judgment",
+      "recover",
+      "refresh"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusdragon": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "dracoplate"
+    ],
+    "moves": [
+      "calmmind",
+      "flamethrower",
+      "judgment",
+      "recover",
+      "refresh",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceuselectric": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "zapplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "icebeam",
+      "judgment",
+      "recover"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusfighting": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "fistplate"
+    ],
+    "moves": [
+      "calmmind",
+      "darkpulse",
+      "icebeam",
+      "judgment",
+      "recover"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusfire": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "flameplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "judgment",
+      "recover",
+      "thunderbolt"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusflying": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "skyplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "judgment",
+      "recover",
+      "refresh"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusghost": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "spookyplate"
+    ],
+    "moves": [
+      "calmmind",
+      "focusblast",
+      "judgment",
+      "recover",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusgrass": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "meadowplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "icebeam",
+      "judgment",
+      "recover",
+      "thunderwave"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusground": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "earthplate"
+    ],
+    "moves": [
+      "calmmind",
+      "icebeam",
+      "judgment",
+      "recover",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusice": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "icicleplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "flamethrower",
+      "judgment",
+      "recover",
+      "thunderbolt"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceuspoison": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "toxicplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "judgment",
+      "recover",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceuspsychic": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "mindplate"
+    ],
+    "moves": [
+      "calmmind",
+      "focusblast",
+      "judgment",
+      "recover",
+      "shadowball"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceusrock": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "stoneplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "judgment",
+      "recover",
+      "refresh",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceussteel": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "ironplate"
+    ],
+    "moves": [
+      "calmmind",
+      "earthpower",
+      "judgment",
+      "recover",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "arceuswater": {
+    "level": 74,
+    "abilities": [
+      "multitype"
+    ],
+    "items": [
+      "splashplate"
+    ],
+    "moves": [
+      "calmmind",
+      "icebeam",
+      "judgment",
+      "recover",
+      "refresh",
+      "thunderbolt",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "ariados": {
+    "level": 88,
+    "abilities": [
+      "insomnia",
+      "swarm"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "bugbite",
+      "poisonjab",
+      "shadowsneak",
+      "suckerpunch",
+      "toxicspikes"
+    ]
+  },
+  "armaldo": {
+    "level": 88,
+    "abilities": [
+      "battlearmor"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "rapidspin",
+      "rockpolish",
+      "stealthrock",
+      "stoneedge",
+      "swordsdance",
+      "toxic",
+      "xscissor"
+    ]
+  },
+  "articuno": {
+    "level": 88,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "healbell",
+      "icebeam",
+      "roar",
+      "roost",
+      "substitute",
+      "toxic"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "azelf": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicespecs",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "explosion",
+      "fireblast",
+      "flamethrower",
+      "hiddenpowerfighting",
+      "nastyplot",
+      "psychic",
+      "stealthrock",
+      "thunderbolt",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "azumarill": {
+    "level": 84,
+    "abilities": [
+      "hugepower"
+    ],
+    "items": [
+      "choiceband"
+    ],
+    "moves": [
+      "aquajet",
+      "doubleedge",
+      "icepunch",
+      "return",
+      "superpower",
+      "waterfall"
+    ]
+  },
+  "banette": {
+    "level": 88,
+    "abilities": [
+      "insomnia"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "destinybond",
+      "hiddenpowerfighting",
+      "shadowclaw",
+      "shadowsneak",
+      "taunt",
+      "thunderwave",
+      "willowisp"
+    ]
+  },
+  "bastiodon": {
+    "level": 88,
+    "abilities": [
+      "sturdy"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "metalburst",
+      "protect",
+      "roar",
+      "rockslide",
+      "stealthrock",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0,
+      "spe": 0
+    },
+    "ivs": {
+      "atk": 0,
+      "spe": 0
+    }
+  },
+  "beautifly": {
+    "level": 88,
+    "abilities": [
+      "swarm"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "bugbuzz",
+      "hiddenpowerground",
+      "psychic",
+      "stunspore",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "spa": 30,
+      "spd": 30
+    }
+  },
+  "beedrill": {
+    "level": 88,
+    "abilities": [
+      "swarm"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "brickbreak",
+      "poisonjab",
+      "swordsdance",
+      "toxicspikes",
+      "uturn",
+      "xscissor"
+    ]
+  },
+  "bellossom": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "heatrock",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "hiddenpowerfire",
+      "leafstorm",
+      "moonlight",
+      "sleeppowder",
+      "sludgebomb",
+      "solarbeam",
+      "sunnyday"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "bibarel": {
+    "level": 88,
+    "abilities": [
+      "simple",
+      "unaware"
+    ],
+    "items": [
+      "chestoberry"
+    ],
+    "moves": [
+      "curse",
+      "quickattack",
+      "rest",
+      "waterfall"
+    ]
+  },
+  "blastoise": {
+    "level": 84,
+    "abilities": [
+      "torrent"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "icebeam",
+      "rapidspin",
+      "rest",
+      "roar",
+      "sleeptalk",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "blaziken": {
+    "level": 84,
+    "abilities": [
+      "blaze"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "fireblast",
+      "flareblitz",
+      "stoneedge",
+      "superpower",
+      "thunderpunch",
+      "vacuumwave"
+    ]
+  },
+  "blissey": {
+    "level": 80,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "aromatherapy",
+      "flamethrower",
+      "icebeam",
+      "protect",
+      "seismictoss",
+      "softboiled",
+      "stealthrock",
+      "thunderwave",
+      "toxic",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "breloom": {
+    "level": 80,
+    "abilities": [
+      "poisonheal"
+    ],
+    "items": [
+      "toxicorb"
+    ],
+    "moves": [
+      "facade",
+      "focuspunch",
+      "leechseed",
+      "machpunch",
+      "seedbomb",
+      "spore",
+      "stoneedge",
+      "substitute",
+      "swordsdance"
+    ]
+  },
+  "bronzong": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "gyroball",
+      "hypnosis",
+      "lightscreen",
+      "payback",
+      "reflect",
+      "stealthrock"
+    ],
+    "evs": {
+      "spe": 0
+    },
+    "ivs": {
+      "spe": 0
+    }
+  },
+  "butterfree": {
+    "level": 88,
+    "abilities": [
+      "compoundeyes"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "bugbuzz",
+      "safeguard",
+      "sleeppowder",
+      "stunspore",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "cacturne": {
+    "level": 88,
+    "abilities": [
+      "sandveil"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "encore",
+      "focuspunch",
+      "lowkick",
+      "seedbomb",
+      "spikes",
+      "substitute",
+      "suckerpunch",
+      "swordsdance"
+    ]
+  },
+  "camerupt": {
+    "level": 88,
+    "abilities": [
+      "solidrock"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthpower",
+      "earthquake",
+      "explosion",
+      "fireblast",
+      "lavaplume",
+      "rockpolish",
+      "stealthrock",
+      "stoneedge"
+    ]
+  },
+  "carnivine": {
+    "level": 88,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "powerwhip",
+      "return",
+      "sleeppowder",
+      "substitute",
+      "swordsdance",
+      "synthesis"
+    ]
+  },
+  "castform": {
+    "level": 100,
+    "abilities": [
+      "forecast"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs"
+    ],
+    "moves": [
+      "energyball",
+      "fireblast",
+      "icebeam",
+      "shadowball",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "celebi": {
+    "level": 80,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "earthpower",
+      "energyball",
+      "hiddenpowerfire",
+      "leafstorm",
+      "leechseed",
+      "nastyplot",
+      "psychic",
+      "recover",
+      "stealthrock",
+      "substitute",
+      "thunderwave",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "charizard": {
+    "level": 88,
+    "abilities": [
+      "blaze"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "lifeorb"
+    ],
+    "moves": [
+      "airslash",
+      "dragonpulse",
+      "fireblast",
+      "flamethrower",
+      "hiddenpowergrass",
+      "roost"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "chatot": {
+    "level": 88,
+    "abilities": [
+      "keeneye",
+      "tangledfeet"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "encore",
+      "heatwave",
+      "hiddenpowergrass",
+      "hypervoice",
+      "nastyplot",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "cherrim": {
+    "level": 88,
+    "abilities": [
+      "flowergift"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "aromatherapy",
+      "energyball",
+      "grasswhistle",
+      "hiddenpowerfire",
+      "hiddenpowerground",
+      "synthesis"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "cherrimsunshine": {
+    "level": 88,
+    "abilities": [
+      "flowergift"
+    ],
+    "items": [
+      "heatrock"
+    ],
+    "moves": [
+      "hiddenpowerice",
+      "solarbeam",
+      "sunnyday",
+      "weatherball"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 2,
+      "def": 30
+    }
+  },
+  "chimecho": {
+    "level": 88,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "hiddenpowerfire",
+      "psychic",
+      "recover",
+      "signalbeam",
+      "thunderwave",
+      "yawn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "claydol": {
+    "level": 84,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "icebeam",
+      "lightscreen",
+      "rapidspin",
+      "reflect",
+      "stealthrock"
+    ]
+  },
+  "clefable": {
+    "level": 84,
+    "abilities": [
+      "magicguard"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "doubleedge",
+      "fireblast",
+      "icebeam",
+      "softboiled",
+      "stealthrock",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "cloyster": {
+    "level": 84,
+    "abilities": [
+      "shellarmor",
+      "skilllink"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "explosion",
+      "iceshard",
+      "rapidspin",
+      "rockblast",
+      "spikes",
+      "surf",
+      "toxicspikes"
+    ]
+  },
+  "corsola": {
+    "level": 88,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "recover",
+      "reflect",
+      "stealthrock",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "cradily": {
+    "level": 88,
+    "abilities": [
+      "suctioncups"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "curse",
+      "earthquake",
+      "recover",
+      "rest",
+      "rockslide",
+      "seedbomb",
+      "sleeptalk",
+      "stealthrock",
+      "toxic"
+    ]
+  },
+  "crawdaunt": {
+    "level": 88,
+    "abilities": [
+      "hypercutter",
+      "shellarmor"
+    ],
+    "items": [
+      "choiceband",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "crunch",
+      "dragondance",
+      "superpower",
+      "waterfall",
+      "xscissor"
+    ]
+  },
+  "cresselia": {
+    "level": 82,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "calmmind",
+      "hiddenpowerfire",
+      "icebeam",
+      "lightscreen",
+      "moonlight",
+      "psychic",
+      "reflect",
+      "substitute",
+      "thunderwave",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "crobat": {
+    "level": 82,
+    "abilities": [
+      "innerfocus"
+    ],
+    "items": [
+      "blacksludge",
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "bravebird",
+      "heatwave",
+      "nastyplot",
+      "roost",
+      "sludgebomb",
+      "superfang",
+      "taunt",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "darkrai": {
+    "level": 76,
+    "abilities": [
+      "baddreams"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "darkpulse",
+      "darkvoid",
+      "focusblast",
+      "nastyplot",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "delcatty": {
+    "level": 88,
+    "abilities": [
+      "cutecharm"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "doubleedge",
+      "healbell",
+      "return",
+      "sing",
+      "thunderwave",
+      "wish"
+    ]
+  },
+  "delibird": {
+    "level": 100,
+    "abilities": [
+      "hustle"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "aerialace",
+      "brickbreak",
+      "icepunch",
+      "iceshard",
+      "rapidspin",
+      "seedbomb"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "deoxys": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "extremespeed",
+      "icebeam",
+      "psychoboost",
+      "spikes",
+      "stealthrock",
+      "superpower"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "deoxysattack": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "extremespeed",
+      "hiddenpowerfire",
+      "icebeam",
+      "psychoboost",
+      "shadowball",
+      "stealthrock",
+      "superpower"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "deoxysdefense": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "recover",
+      "seismictoss",
+      "spikes",
+      "stealthrock",
+      "taunt",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "deoxysspeed": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "lightscreen",
+      "psychoboost",
+      "reflect",
+      "spikes",
+      "stealthrock",
+      "superpower",
+      "taunt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "dewgong": {
+    "level": 88,
+    "abilities": [
+      "hydration",
+      "thickfat"
+    ],
+    "items": [
+      "chestoberry",
+      "damprock",
+      "leftovers"
+    ],
+    "moves": [
+      "encore",
+      "icebeam",
+      "raindance",
+      "rest",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "dialga": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "chestoberry",
+      "choicescarf",
+      "choicespecs",
+      "expertbelt",
+      "leftovers",
+      "lifeorb",
+      "lumberry"
+    ],
+    "moves": [
+      "aurasphere",
+      "bulkup",
+      "dracometeor",
+      "dragonclaw",
+      "earthquake",
+      "fireblast",
+      "outrage",
+      "rest",
+      "sleeptalk",
+      "stealthrock",
+      "thunderbolt",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "ditto": {
+    "level": 100,
+    "abilities": [
+      "limber"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "transform"
+    ]
+  },
+  "dodrio": {
+    "level": 88,
+    "abilities": [
+      "earlybird"
+    ],
+    "items": [
+      "choiceband",
+      "lifeorb"
+    ],
+    "moves": [
+      "bravebird",
+      "doubleedge",
+      "pursuit",
+      "quickattack",
+      "return",
+      "roost"
+    ]
+  },
+  "donphan": {
+    "level": 84,
+    "abilities": [
+      "sturdy"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "assurance",
+      "earthquake",
+      "iceshard",
+      "rapidspin",
+      "seedbomb",
+      "stealthrock",
+      "stoneedge"
+    ]
+  },
+  "dragonite": {
+    "level": 80,
+    "abilities": [
+      "innerfocus"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "leftovers",
+      "lifeorb",
+      "lumberry"
+    ],
+    "moves": [
+      "dracometeor",
+      "dragonclaw",
+      "dragondance",
+      "earthquake",
+      "extremespeed",
+      "fireblast",
+      "firepunch",
+      "outrage",
+      "roost",
+      "superpower"
+    ]
+  },
+  "drapion": {
+    "level": 84,
+    "abilities": [
+      "sniper"
+    ],
+    "items": [
+      "blacksludge",
+      "choiceband",
+      "choicescarf",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquatail",
+      "crunch",
+      "earthquake",
+      "icefang",
+      "pursuit",
+      "swordsdance",
+      "taunt",
+      "toxicspikes",
+      "whirlwind"
+    ]
+  },
+  "drifblim": {
+    "level": 88,
+    "abilities": [
+      "unburden"
+    ],
+    "items": [
+      "chestoberry",
+      "sitrusberry"
+    ],
+    "moves": [
+      "calmmind",
+      "hiddenpowerfighting",
+      "rest",
+      "shadowball",
+      "substitute",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "dugtrio": {
+    "level": 84,
+    "abilities": [
+      "arenatrap"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "nightslash",
+      "stoneedge",
+      "substitute",
+      "suckerpunch"
+    ]
+  },
+  "dunsparce": {
+    "level": 88,
+    "abilities": [
+      "serenegrace"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "bite",
+      "bodyslam",
+      "headbutt",
+      "rockslide",
+      "roost",
+      "thunderwave",
+      "zenheadbutt"
+    ]
+  },
+  "dusknoir": {
+    "level": 82,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "focuspunch",
+      "icebeam",
+      "painsplit",
+      "shadowsneak",
+      "substitute",
+      "willowisp"
+    ]
+  },
+  "dustox": {
+    "level": 88,
+    "abilities": [
+      "shielddust"
+    ],
+    "items": [
+      "blacksludge"
+    ],
+    "moves": [
+      "bugbuzz",
+      "protect",
+      "roost",
+      "toxic",
+      "whirlwind"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "electivire": {
+    "level": 82,
+    "abilities": [
+      "motordrive"
+    ],
+    "items": [
+      "expertbelt"
+    ],
+    "moves": [
+      "crosschop",
+      "earthquake",
+      "flamethrower",
+      "hiddenpowergrass",
+      "icepunch",
+      "thunderbolt"
+    ]
+  },
+  "electrode": {
+    "level": 88,
+    "abilities": [
+      "soundproof",
+      "static"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "explosion",
+      "hiddenpowerice",
+      "signalbeam",
+      "taunt",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "empoleon": {
+    "level": 80,
+    "abilities": [
+      "torrent"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "grassknot",
+      "hiddenpowerelectric",
+      "hydropump",
+      "icebeam",
+      "roar",
+      "stealthrock",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "entei": {
+    "level": 86,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choiceband",
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "extremespeed",
+      "flareblitz",
+      "hiddenpowergrass",
+      "ironhead",
+      "stoneedge"
+    ]
+  },
+  "espeon": {
+    "level": 86,
+    "abilities": [
+      "synchronize"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "batonpass",
+      "calmmind",
+      "hiddenpowerground",
+      "morningsun",
+      "psychic",
+      "shadowball",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "exeggutor": {
+    "level": 84,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "heatrock",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "explosion",
+      "hiddenpowerfire",
+      "leafstorm",
+      "psychic",
+      "sleeppowder",
+      "solarbeam",
+      "sunnyday",
+      "synthesis"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "exploud": {
+    "level": 88,
+    "abilities": [
+      "soundproof"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "crunch",
+      "earthquake",
+      "fireblast",
+      "icebeam",
+      "return",
+      "surf"
+    ]
+  },
+  "farfetchd": {
+    "level": 100,
+    "abilities": [
+      "innerfocus",
+      "keeneye"
+    ],
+    "items": [
+      "stick"
+    ],
+    "moves": [
+      "leafblade",
+      "nightslash",
+      "return",
+      "slash",
+      "swordsdance",
+      "uturn"
+    ]
+  },
+  "fearow": {
+    "level": 88,
+    "abilities": [
+      "keeneye"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf"
+    ],
+    "moves": [
+      "doubleedge",
+      "drillpeck",
+      "pursuit",
+      "quickattack",
+      "return",
+      "uturn"
+    ]
+  },
+  "feraligatr": {
+    "level": 84,
+    "abilities": [
+      "torrent"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquajet",
+      "dragondance",
+      "earthquake",
+      "icepunch",
+      "lowkick",
+      "return",
+      "swordsdance",
+      "waterfall"
+    ]
+  },
+  "flareon": {
+    "level": 88,
+    "abilities": [
+      "flashfire"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers"
+    ],
+    "moves": [
+      "fireblast",
+      "hiddenpowergrass",
+      "lavaplume",
+      "protect",
+      "superpower",
+      "toxic",
+      "wish"
+    ],
+    "ivs": {
+      "atk": 30,
+      "spa": 30
+    }
+  },
+  "floatzel": {
+    "level": 88,
+    "abilities": [
+      "swiftswim"
+    ],
+    "items": [
+      "choiceband",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquajet",
+      "batonpass",
+      "bulkup",
+      "crunch",
+      "icepunch",
+      "return",
+      "taunt",
+      "waterfall"
+    ]
+  },
+  "flygon": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "dragonclaw",
+      "earthquake",
+      "fireblast",
+      "firepunch",
+      "outrage",
+      "roost",
+      "stoneedge",
+      "uturn"
+    ]
+  },
+  "forretress": {
+    "level": 80,
+    "abilities": [
+      "sturdy"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "gyroball",
+      "rapidspin",
+      "spikes",
+      "stealthrock",
+      "toxicspikes"
+    ],
+    "evs": {
+      "spe": 0
+    },
+    "ivs": {
+      "spe": 0
+    }
+  },
+  "froslass": {
+    "level": 82,
+    "abilities": [
+      "snowcloak"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "destinybond",
+      "icebeam",
+      "shadowball",
+      "spikes",
+      "taunt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "furret": {
+    "level": 88,
+    "abilities": [
+      "keeneye",
+      "runaway"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquatail",
+      "brickbreak",
+      "doubleedge",
+      "firepunch",
+      "return",
+      "shadowclaw",
+      "suckerpunch",
+      "trick",
+      "uturn"
+    ]
+  },
+  "gallade": {
+    "level": 82,
+    "abilities": [
+      "steadfast"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "lifeorb"
+    ],
+    "moves": [
+      "closecombat",
+      "icepunch",
+      "nightslash",
+      "psychocut",
+      "shadowsneak",
+      "stoneedge",
+      "swordsdance",
+      "trick"
+    ]
+  },
+  "garchomp": {
+    "level": 76,
+    "abilities": [
+      "sandveil"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers",
+      "lumberry"
+    ],
+    "moves": [
+      "dragonclaw",
+      "earthquake",
+      "fireblast",
+      "outrage",
+      "stealthrock",
+      "stoneedge",
+      "substitute",
+      "swordsdance"
+    ]
+  },
+  "gardevoir": {
+    "level": 88,
+    "abilities": [
+      "synchronize",
+      "trace"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "focusblast",
+      "psychic",
+      "shadowball",
+      "taunt",
+      "thunderbolt",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "gastrodon": {
+    "level": 88,
+    "abilities": [
+      "stickyhold"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthpower",
+      "icebeam",
+      "recover",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "gastrodoneast": {
+    "level": 88,
+    "abilities": [
+      "stickyhold"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthpower",
+      "icebeam",
+      "recover",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "gengar": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "blacksludge",
+      "choicespecs",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "focusblast",
+      "hiddenpowerfire",
+      "hypnosis",
+      "painsplit",
+      "shadowball",
+      "sludgebomb",
+      "substitute",
+      "thunderbolt",
+      "trick"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "girafarig": {
+    "level": 88,
+    "abilities": [
+      "innerfocus"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "batonpass",
+      "calmmind",
+      "hiddenpowerfighting",
+      "psychic",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "giratina": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "dragonpulse",
+      "rest",
+      "roar",
+      "shadowball",
+      "sleeptalk",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "giratinaorigin": {
+    "level": 76,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "griseousorb"
+    ],
+    "moves": [
+      "aurasphere",
+      "calmmind",
+      "dracometeor",
+      "dragonpulse",
+      "hiddenpowerfire",
+      "outrage",
+      "shadowball",
+      "shadowsneak",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "glaceon": {
+    "level": 88,
+    "abilities": [
+      "snowcloak"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "hiddenpowerfire",
+      "hiddenpowerground",
+      "icebeam",
+      "protect",
+      "shadowball",
+      "toxic",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "spa": 30
+    }
+  },
+  "glalie": {
+    "level": 88,
+    "abilities": [
+      "innerfocus"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "icebeam",
+      "spikes",
+      "taunt"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "gliscor": {
+    "level": 80,
+    "abilities": [
+      "hypercutter",
+      "sandveil"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "roost",
+      "stealthrock",
+      "stoneedge",
+      "swordsdance",
+      "taunt",
+      "toxic",
+      "uturn"
+    ]
+  },
+  "golduck": {
+    "level": 88,
+    "abilities": [
+      "cloudnine"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "encore",
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "psychic",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "golem": {
+    "level": 88,
+    "abilities": [
+      "rockhead"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "hammerarm",
+      "stealthrock",
+      "stoneedge",
+      "suckerpunch"
+    ]
+  },
+  "gorebyss": {
+    "level": 88,
+    "abilities": [
+      "swiftswim"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "raindance",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 2,
+      "spa": 30
+    }
+  },
+  "granbull": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bodyslam",
+      "closecombat",
+      "crunch",
+      "earthquake",
+      "firepunch",
+      "healbell",
+      "return",
+      "thunderwave",
+      "toxic"
+    ]
+  },
+  "groudon": {
+    "level": 76,
+    "abilities": [
+      "drought"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "firepunch",
+      "rockpolish",
+      "stealthrock",
+      "stoneedge",
+      "swordsdance",
+      "toxic"
+    ]
+  },
+  "grumpig": {
+    "level": 88,
+    "abilities": [
+      "thickfat"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "focusblast",
+      "healbell",
+      "psychic",
+      "shadowball",
+      "thunderwave",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "gyarados": {
+    "level": 80,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "chestoberry",
+      "choiceband",
+      "choicescarf",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bounce",
+      "dragondance",
+      "earthquake",
+      "icefang",
+      "rest",
+      "sleeptalk",
+      "stoneedge",
+      "waterfall"
+    ]
+  },
+  "hariyama": {
+    "level": 84,
+    "abilities": [
+      "guts",
+      "thickfat"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb",
+      "toxicorb"
+    ],
+    "moves": [
+      "bulletpunch",
+      "closecombat",
+      "fakeout",
+      "focuspunch",
+      "icepunch",
+      "payback",
+      "stoneedge",
+      "substitute"
+    ]
+  },
+  "heatran": {
+    "level": 80,
+    "abilities": [
+      "flashfire"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "dragonpulse",
+      "earthpower",
+      "explosion",
+      "fireblast",
+      "hiddenpowergrass",
+      "lavaplume",
+      "protect",
+      "roar",
+      "stealthrock",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "heracross": {
+    "level": 82,
+    "abilities": [
+      "guts"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "leftovers",
+      "toxicorb"
+    ],
+    "moves": [
+      "closecombat",
+      "megahorn",
+      "nightslash",
+      "stoneedge",
+      "substitute",
+      "swordsdance"
+    ]
+  },
+  "hippowdon": {
+    "level": 80,
+    "abilities": [
+      "sandstream"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "icefang",
+      "roar",
+      "slackoff",
+      "stealthrock",
+      "stoneedge",
+      "toxic"
+    ]
+  },
+  "hitmonchan": {
+    "level": 88,
+    "abilities": [
+      "ironfist"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bulkup",
+      "closecombat",
+      "drainpunch",
+      "icepunch",
+      "machpunch",
+      "rapidspin",
+      "stoneedge"
+    ]
+  },
+  "hitmonlee": {
+    "level": 84,
+    "abilities": [
+      "limber"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "closecombat",
+      "earthquake",
+      "machpunch",
+      "stoneedge",
+      "substitute",
+      "suckerpunch"
+    ]
+  },
+  "hitmontop": {
+    "level": 84,
+    "abilities": [
+      "intimidate",
+      "technician"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bulkup",
+      "closecombat",
+      "machpunch",
+      "rapidspin",
+      "stoneedge",
+      "suckerpunch",
+      "toxic"
+    ]
+  },
+  "hooh": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "leftovers"
+    ],
+    "moves": [
+      "bravebird",
+      "earthquake",
+      "punishment",
+      "roost",
+      "sacredfire",
+      "substitute"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "honchkrow": {
+    "level": 82,
+    "abilities": [
+      "insomnia"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "bravebird",
+      "heatwave",
+      "pursuit",
+      "suckerpunch",
+      "superpower"
+    ]
+  },
+  "houndoom": {
+    "level": 84,
+    "abilities": [
+      "flashfire"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "darkpulse",
+      "fireblast",
+      "hiddenpowergrass",
+      "nastyplot",
+      "suckerpunch"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "spa": 30
+    }
+  },
+  "huntail": {
+    "level": 88,
+    "abilities": [
+      "swiftswim"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "doubleedge",
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "raindance",
+      "suckerpunch",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "hypno": {
+    "level": 88,
+    "abilities": [
+      "insomnia"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "protect",
+      "seismictoss",
+      "thunderwave",
+      "toxic",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "illumise": {
+    "level": 88,
+    "abilities": [
+      "tintedlens"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "bugbuzz",
+      "encore",
+      "hiddenpowerground",
+      "hiddenpowerice",
+      "thunderbolt",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "infernape": {
+    "level": 80,
+    "abilities": [
+      "blaze"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "closecombat",
+      "flareblitz",
+      "grassknot",
+      "hiddenpowerice",
+      "machpunch",
+      "stealthrock",
+      "stoneedge",
+      "swordsdance",
+      "uturn"
+    ]
+  },
+  "jirachi": {
+    "level": 80,
+    "abilities": [
+      "serenegrace"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers"
+    ],
+    "moves": [
+      "bodyslam",
+      "calmmind",
+      "firepunch",
+      "flashcannon",
+      "icepunch",
+      "ironhead",
+      "psychic",
+      "stealthrock",
+      "substitute",
+      "thunderbolt",
+      "uturn",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "jolteon": {
+    "level": 82,
+    "abilities": [
+      "voltabsorb"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "hiddenpowergrass",
+      "hiddenpowerice",
+      "substitute",
+      "thunderbolt",
+      "yawn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "jumpluff": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bounce",
+      "encore",
+      "grassknot",
+      "leechseed",
+      "sleeppowder",
+      "stunspore",
+      "substitute",
+      "toxic",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "jynx": {
+    "level": 88,
+    "abilities": [
+      "forewarn",
+      "oblivious"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "focusblast",
+      "icebeam",
+      "lovelykiss",
+      "nastyplot",
+      "psychic",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "kabutops": {
+    "level": 84,
+    "abilities": [
+      "battlearmor",
+      "swiftswim"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquajet",
+      "rapidspin",
+      "stealthrock",
+      "stoneedge",
+      "superpower",
+      "swordsdance",
+      "waterfall"
+    ]
+  },
+  "kangaskhan": {
+    "level": 84,
+    "abilities": [
+      "scrappy"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "doubleedge",
+      "earthquake",
+      "fakeout",
+      "focuspunch",
+      "hammerarm",
+      "return",
+      "substitute",
+      "suckerpunch"
+    ]
+  },
+  "kecleon": {
+    "level": 88,
+    "abilities": [
+      "colorchange"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "aquatail",
+      "recover",
+      "return",
+      "stealthrock",
+      "thunderwave",
+      "toxic"
+    ]
+  },
+  "kingdra": {
+    "level": 80,
+    "abilities": [
+      "sniper",
+      "swiftswim"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers",
+      "lifeorb",
+      "lumberry"
+    ],
+    "moves": [
+      "dracometeor",
+      "dragondance",
+      "hydropump",
+      "icebeam",
+      "outrage",
+      "rest",
+      "sleeptalk",
+      "substitute",
+      "waterfall"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "kingler": {
+    "level": 88,
+    "abilities": [
+      "hypercutter",
+      "shellarmor"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "crabhammer",
+      "return",
+      "superpower",
+      "swordsdance",
+      "xscissor"
+    ]
+  },
+  "kricketune": {
+    "level": 88,
+    "abilities": [
+      "swarm"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "brickbreak",
+      "nightslash",
+      "return",
+      "swordsdance",
+      "xscissor"
+    ]
+  },
+  "kyogre": {
+    "level": 76,
+    "abilities": [
+      "drizzle"
+    ],
+    "items": [
+      "chestoberry",
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "icebeam",
+      "rest",
+      "sleeptalk",
+      "surf",
+      "thunder",
+      "waterspout"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "lanturn": {
+    "level": 84,
+    "abilities": [
+      "voltabsorb"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "confuseray",
+      "discharge",
+      "healbell",
+      "icebeam",
+      "surf",
+      "thunderwave",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "lapras": {
+    "level": 88,
+    "abilities": [
+      "waterabsorb"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "healbell",
+      "hydropump",
+      "icebeam",
+      "surf",
+      "thunderbolt",
+      "toxic"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "latias": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "dragonpulse",
+      "psychic",
+      "refresh",
+      "roost",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "latios": {
+    "level": 76,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "dracometeor",
+      "dragonpulse",
+      "hiddenpowerfire",
+      "psychic",
+      "roost",
+      "surf",
+      "thunderbolt",
+      "trick"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "leafeon": {
+    "level": 84,
+    "abilities": [
+      "leafguard"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "doubleedge",
+      "healbell",
+      "leafblade",
+      "substitute",
+      "swordsdance",
+      "synthesis",
+      "yawn"
+    ]
+  },
+  "ledian": {
+    "level": 88,
+    "abilities": [
+      "swarm"
+    ],
+    "items": [
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "encore",
+      "lightscreen",
+      "reflect",
+      "roost",
+      "toxic",
+      "uturn"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "lickilicky": {
+    "level": 88,
+    "abilities": [
+      "owntempo"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers"
+    ],
+    "moves": [
+      "aquatail",
+      "bodyslam",
+      "earthquake",
+      "explosion",
+      "healbell",
+      "protect",
+      "return",
+      "wish"
+    ]
+  },
+  "linoone": {
+    "level": 88,
+    "abilities": [
+      "gluttony"
+    ],
+    "items": [
+      "sitrusberry"
+    ],
+    "moves": [
+      "bellydrum",
+      "extremespeed",
+      "seedbomb",
+      "shadowclaw"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "lopunny": {
+    "level": 88,
+    "abilities": [
+      "cutecharm"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "encore",
+      "healingwish",
+      "return",
+      "substitute",
+      "thunderwave",
+      "toxic"
+    ]
+  },
+  "lucario": {
+    "level": 80,
+    "abilities": [
+      "innerfocus"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "closecombat",
+      "crunch",
+      "extremespeed",
+      "icepunch",
+      "stoneedge",
+      "swordsdance"
+    ]
+  },
+  "ludicolo": {
+    "level": 84,
+    "abilities": [
+      "raindish",
+      "swiftswim"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "energyball",
+      "icebeam",
+      "leechseed",
+      "raindance",
+      "substitute",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "lugia": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "aeroblast",
+      "calmmind",
+      "earthpower",
+      "icebeam",
+      "roost",
+      "substitute",
+      "toxic",
+      "whirlwind"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "lumineon": {
+    "level": 88,
+    "abilities": [
+      "swiftswim"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "lifeorb"
+    ],
+    "moves": [
+      "hiddenpowerelectric",
+      "hiddenpowergrass",
+      "icebeam",
+      "raindance",
+      "surf",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "lunatone": {
+    "level": 88,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "batonpass",
+      "calmmind",
+      "earthpower",
+      "psychic",
+      "shadowball",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "luvdisc": {
+    "level": 88,
+    "abilities": [
+      "swiftswim"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "icebeam",
+      "protect",
+      "surf",
+      "sweetkiss",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "luxray": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "crunch",
+      "icefang",
+      "protect",
+      "roar",
+      "superpower",
+      "thunderbolt",
+      "toxic"
+    ]
+  },
+  "machamp": {
+    "level": 80,
+    "abilities": [
+      "noguard"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bulkup",
+      "bulletpunch",
+      "dynamicpunch",
+      "icepunch",
+      "payback",
+      "stoneedge",
+      "substitute"
+    ]
+  },
+  "magcargo": {
+    "level": 88,
+    "abilities": [
+      "flamebody"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "fireblast",
+      "hiddenpowerrock",
+      "lavaplume",
+      "recover",
+      "stealthrock",
+      "toxic",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "magmortar": {
+    "level": 88,
+    "abilities": [
+      "flamebody"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "fireblast",
+      "focusblast",
+      "hiddenpowergrass",
+      "hiddenpowerice",
+      "substitute",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "magnezone": {
+    "level": 80,
+    "abilities": [
+      "magnetpull"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "explosion",
+      "flashcannon",
+      "hiddenpowergrass",
+      "hiddenpowerice",
+      "magnetrise",
+      "substitute",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "mamoswine": {
+    "level": 82,
+    "abilities": [
+      "snowcloak"
+    ],
+    "items": [
+      "choiceband",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "endeavor",
+      "iceshard",
+      "stealthrock",
+      "stoneedge",
+      "superpower"
+    ]
+  },
+  "manaphy": {
+    "level": 76,
+    "abilities": [
+      "hydration"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "energyball",
+      "icebeam",
+      "surf",
+      "tailglow"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "manectric": {
+    "level": 88,
+    "abilities": [
+      "static"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs"
+    ],
+    "moves": [
+      "flamethrower",
+      "hiddenpowergrass",
+      "overheat",
+      "switcheroo",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 2,
+      "spa": 30
+    }
+  },
+  "mantine": {
+    "level": 88,
+    "abilities": [
+      "swiftswim",
+      "waterabsorb"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "rest",
+      "sleeptalk",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "marowak": {
+    "level": 88,
+    "abilities": [
+      "rockhead"
+    ],
+    "items": [
+      "thickclub"
+    ],
+    "moves": [
+      "doubleedge",
+      "earthquake",
+      "firepunch",
+      "substitute",
+      "swordsdance",
+      "thunderpunch"
+    ]
+  },
+  "masquerain": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "airslash",
+      "batonpass",
+      "bugbuzz",
+      "hydropump",
+      "roost"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "mawile": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "batonpass",
+      "focuspunch",
+      "ironhead",
+      "substitute",
+      "suckerpunch",
+      "swordsdance"
+    ]
+  },
+  "medicham": {
+    "level": 88,
+    "abilities": [
+      "purepower"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "lifeorb"
+    ],
+    "moves": [
+      "bulletpunch",
+      "fakeout",
+      "highjumpkick",
+      "icepunch",
+      "psychocut",
+      "thunderpunch",
+      "trick"
+    ]
+  },
+  "meganium": {
+    "level": 88,
+    "abilities": [
+      "overgrow"
+    ],
+    "items": [
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "aromatherapy",
+      "energyball",
+      "leechseed",
+      "lightscreen",
+      "reflect",
+      "synthesis",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "mesprit": {
+    "level": 84,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "hiddenpowerfire",
+      "icebeam",
+      "psychic",
+      "stealthrock",
+      "substitute",
+      "thunderwave",
+      "thunderbolt",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "metagross": {
+    "level": 80,
+    "abilities": [
+      "clearbody"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "bulletpunch",
+      "earthquake",
+      "explosion",
+      "meteormash",
+      "stealthrock",
+      "zenheadbutt"
+    ]
+  },
+  "mew": {
+    "level": 76,
+    "abilities": [
+      "synchronize"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "aurasphere",
+      "explosion",
+      "flamethrower",
+      "nastyplot",
+      "psychic",
+      "softboiled",
+      "stealthrock",
+      "taunt",
+      "uturn",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "mewtwo": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "aurasphere",
+      "calmmind",
+      "fireblast",
+      "icebeam",
+      "psychic",
+      "recover",
+      "selfdestruct",
+      "substitute",
+      "taunt",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "mightyena": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "firefang",
+      "return",
+      "suckerpunch",
+      "superfang",
+      "taunt",
+      "toxic"
+    ]
+  },
+  "milotic": {
+    "level": 84,
+    "abilities": [
+      "marvelscale"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "haze",
+      "icebeam",
+      "recover",
+      "rest",
+      "sleeptalk",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "miltank": {
+    "level": 84,
+    "abilities": [
+      "scrappy",
+      "thickfat"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "bodyslam",
+      "curse",
+      "earthquake",
+      "healbell",
+      "milkdrink",
+      "stealthrock"
+    ]
+  },
+  "minun": {
+    "level": 88,
+    "abilities": [
+      "minus"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "encore",
+      "hiddenpowerice",
+      "nastyplot",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "mismagius": {
+    "level": 84,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "hiddenpowerfighting",
+      "nastyplot",
+      "painsplit",
+      "shadowball",
+      "substitute",
+      "taunt",
+      "thunderbolt",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "moltres": {
+    "level": 84,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "airslash",
+      "fireblast",
+      "flamethrower",
+      "hiddenpowergrass",
+      "roost",
+      "substitute",
+      "toxic",
+      "uturn"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    }
+  },
+  "mothim": {
+    "level": 88,
+    "abilities": [
+      "swarm"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "lifeorb"
+    ],
+    "moves": [
+      "airslash",
+      "bugbuzz",
+      "hiddenpowerground",
+      "roost",
+      "shadowball",
+      "uturn"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    }
+  },
+  "mrmime": {
+    "level": 88,
+    "abilities": [
+      "filter"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "batonpass",
+      "encore",
+      "focusblast",
+      "nastyplot",
+      "psychic",
+      "shadowball",
+      "substitute",
+      "taunt",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "muk": {
+    "level": 88,
+    "abilities": [
+      "stickyhold"
+    ],
+    "items": [
+      "blacksludge",
+      "choiceband"
+    ],
+    "moves": [
+      "brickbreak",
+      "curse",
+      "explosion",
+      "gunkshot",
+      "icepunch",
+      "payback",
+      "poisonjab",
+      "rest",
+      "shadowsneak",
+      "sleeptalk"
+    ]
+  },
+  "nidoking": {
+    "level": 84,
+    "abilities": [
+      "poisonpoint"
+    ],
+    "items": [
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "fireblast",
+      "icebeam",
+      "megahorn",
+      "stealthrock",
+      "suckerpunch",
+      "thunderbolt"
+    ]
+  },
+  "nidoqueen": {
+    "level": 88,
+    "abilities": [
+      "poisonpoint"
+    ],
+    "items": [
+      "blacksludge"
+    ],
+    "moves": [
+      "earthquake",
+      "fireblast",
+      "icebeam",
+      "roar",
+      "stealthrock",
+      "toxicspikes"
+    ]
+  },
+  "ninetales": {
+    "level": 88,
+    "abilities": [
+      "flashfire"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "energyball",
+      "fireblast",
+      "flamethrower",
+      "hiddenpowerrock",
+      "hypnosis",
+      "nastyplot"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    }
+  },
+  "ninjask": {
+    "level": 82,
+    "abilities": [
+      "speedboost"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "protect",
+      "substitute",
+      "swordsdance",
+      "xscissor"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "noctowl": {
+    "level": 88,
+    "abilities": [
+      "insomnia"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "nightshade",
+      "reflect",
+      "roost",
+      "toxic",
+      "whirlwind"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "octillery": {
+    "level": 88,
+    "abilities": [
+      "sniper"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "energyball",
+      "fireblast",
+      "icebeam",
+      "substitute",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "omastar": {
+    "level": 84,
+    "abilities": [
+      "shellarmor",
+      "swiftswim"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthpower",
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "raindance",
+      "spikes",
+      "stealthrock",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "pachirisu": {
+    "level": 88,
+    "abilities": [
+      "pickup",
+      "runaway"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "discharge",
+      "lightscreen",
+      "superfang",
+      "toxic",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "palkia": {
+    "level": 76,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs"
+    ],
+    "moves": [
+      "aurasphere",
+      "dracometeor",
+      "fireblast",
+      "hydropump",
+      "spacialrend",
+      "surf",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "parasect": {
+    "level": 88,
+    "abilities": [
+      "dryskin"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "seedbomb",
+      "spore",
+      "stunspore",
+      "synthesis",
+      "xscissor"
+    ]
+  },
+  "pelipper": {
+    "level": 88,
+    "abilities": [
+      "keeneye"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "airslash",
+      "hiddenpowergrass",
+      "hydropump",
+      "roost",
+      "surf",
+      "toxic",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "persian": {
+    "level": 88,
+    "abilities": [
+      "limber",
+      "technician"
+    ],
+    "items": [
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bite",
+      "fakeout",
+      "hypnosis",
+      "nastyplot",
+      "return",
+      "swift",
+      "taunt",
+      "uturn",
+      "waterpulse"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "phione": {
+    "level": 88,
+    "abilities": [
+      "hydration"
+    ],
+    "items": [
+      "chestoberry",
+      "damprock",
+      "leftovers"
+    ],
+    "moves": [
+      "icebeam",
+      "raindance",
+      "rest",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "pidgeot": {
+    "level": 88,
+    "abilities": [
+      "keeneye",
+      "tangledfeet"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf"
+    ],
+    "moves": [
+      "bravebird",
+      "doubleedge",
+      "pursuit",
+      "quickattack",
+      "uturn"
+    ]
+  },
+  "pinsir": {
+    "level": 88,
+    "abilities": [
+      "hypercutter",
+      "moldbreaker"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "lifeorb"
+    ],
+    "moves": [
+      "closecombat",
+      "earthquake",
+      "quickattack",
+      "stealthrock",
+      "stoneedge",
+      "swordsdance",
+      "xscissor"
+    ]
+  },
+  "plusle": {
+    "level": 88,
+    "abilities": [
+      "plus"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "encore",
+      "hiddenpowerice",
+      "nastyplot",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "politoed": {
+    "level": 88,
+    "abilities": [
+      "waterabsorb"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "encore",
+      "focusblast",
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "protect",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "poliwrath": {
+    "level": 88,
+    "abilities": [
+      "waterabsorb"
+    ],
+    "items": [
+      "chestoberry",
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "brickbreak",
+      "bulkup",
+      "encore",
+      "focuspunch",
+      "icepunch",
+      "rest",
+      "sleeptalk",
+      "substitute",
+      "toxic",
+      "waterfall"
+    ]
+  },
+  "porygonz": {
+    "level": 82,
+    "abilities": [
+      "adaptability",
+      "download"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "agility",
+      "darkpulse",
+      "hiddenpowerfighting",
+      "icebeam",
+      "nastyplot",
+      "thunderbolt",
+      "triattack",
+      "trick"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "porygon2": {
+    "level": 88,
+    "abilities": [
+      "download"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "discharge",
+      "icebeam",
+      "recover",
+      "toxic",
+      "triattack"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "primeape": {
+    "level": 84,
+    "abilities": [
+      "vitalspirit"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "closecombat",
+      "encore",
+      "icepunch",
+      "punishment",
+      "stoneedge",
+      "uturn"
+    ]
+  },
+  "probopass": {
+    "level": 88,
+    "abilities": [
+      "magnetpull"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthpower",
+      "powergem",
+      "stealthrock",
+      "thunderwave",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "purugly": {
+    "level": 88,
+    "abilities": [
+      "thickfat"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "fakeout",
+      "return",
+      "shadowclaw",
+      "suckerpunch",
+      "taunt",
+      "uturn"
+    ]
+  },
+  "quagsire": {
+    "level": 88,
+    "abilities": [
+      "waterabsorb"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "encore",
+      "icepunch",
+      "recover",
+      "toxic",
+      "waterfall",
+      "yawn"
+    ]
+  },
+  "qwilfish": {
+    "level": 84,
+    "abilities": [
+      "poisonpoint",
+      "swiftswim"
+    ],
+    "items": [
+      "blacksludge",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "destinybond",
+      "explosion",
+      "poisonjab",
+      "spikes",
+      "thunderwave",
+      "toxicspikes",
+      "waterfall"
+    ]
+  },
+  "raichu": {
+    "level": 88,
+    "abilities": [
+      "static"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "encore",
+      "focusblast",
+      "focuspunch",
+      "grassknot",
+      "hiddenpowerice",
+      "nastyplot",
+      "substitute",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "raikou": {
+    "level": 82,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "aurasphere",
+      "calmmind",
+      "hiddenpowerice",
+      "shadowball",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "rampardos": {
+    "level": 88,
+    "abilities": [
+      "moldbreaker"
+    ],
+    "items": [
+      "choiceband",
+      "expertbelt",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "firepunch",
+      "icebeam",
+      "rockpolish",
+      "stoneedge",
+      "zenheadbutt"
+    ]
+  },
+  "rapidash": {
+    "level": 88,
+    "abilities": [
+      "flashfire"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "flareblitz",
+      "hypnosis",
+      "megahorn",
+      "morningsun",
+      "willowisp"
+    ]
+  },
+  "raticate": {
+    "level": 88,
+    "abilities": [
+      "guts"
+    ],
+    "items": [
+      "toxicorb"
+    ],
+    "moves": [
+      "crunch",
+      "facade",
+      "protect",
+      "suckerpunch",
+      "swordsdance",
+      "uturn"
+    ]
+  },
+  "rayquaza": {
+    "level": 76,
+    "abilities": [
+      "airlock"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb",
+      "lumberry"
+    ],
+    "moves": [
+      "dragonclaw",
+      "dragondance",
+      "earthquake",
+      "extremespeed",
+      "outrage",
+      "overheat",
+      "swordsdance"
+    ]
+  },
+  "regice": {
+    "level": 88,
+    "abilities": [
+      "clearbody"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "focusblast",
+      "icebeam",
+      "rest",
+      "sleeptalk",
+      "thunderwave",
+      "thunderbolt"
+    ],
+    "evs": {
+      "hp": 81,
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "regigigas": {
+    "level": 88,
+    "abilities": [
+      "slowstart"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "confuseray",
+      "earthquake",
+      "firepunch",
+      "return",
+      "substitute",
+      "thunderwave",
+      "toxic"
+    ]
+  },
+  "regirock": {
+    "level": 88,
+    "abilities": [
+      "clearbody"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "rest",
+      "rockslide",
+      "sleeptalk",
+      "stealthrock",
+      "thunderwave"
+    ]
+  },
+  "registeel": {
+    "level": 84,
+    "abilities": [
+      "clearbody"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "curse",
+      "ironhead",
+      "rest",
+      "sleeptalk",
+      "stealthrock",
+      "thunderwave",
+      "toxic"
+    ]
+  },
+  "relicanth": {
+    "level": 88,
+    "abilities": [
+      "rockhead",
+      "swiftswim"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquatail",
+      "doubleedge",
+      "earthquake",
+      "headsmash",
+      "rockpolish",
+      "stealthrock",
+      "waterfall"
+    ]
+  },
+  "rhyperior": {
+    "level": 84,
+    "abilities": [
+      "solidrock"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "icepunch",
+      "megahorn",
+      "rockpolish",
+      "stealthrock",
+      "stoneedge"
+    ]
+  },
+  "roserade": {
+    "level": 80,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "blacksludge",
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "energyball",
+      "hiddenpowerfire",
+      "hiddenpowerice",
+      "leafstorm",
+      "rest",
+      "sleeppowder",
+      "sludgebomb",
+      "spikes",
+      "toxicspikes"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "rotom": {
+    "level": 84,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "hiddenpowerfighting",
+      "hiddenpowerice",
+      "painsplit",
+      "shadowball",
+      "substitute",
+      "thunderbolt",
+      "trick",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "rotomfan": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "chestoberry",
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "airslash",
+      "discharge",
+      "hiddenpowerice",
+      "painsplit",
+      "rest",
+      "shadowball",
+      "sleeptalk",
+      "substitute",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "rotomfrost": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "chestoberry",
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "blizzard",
+      "painsplit",
+      "rest",
+      "shadowball",
+      "sleeptalk",
+      "substitute",
+      "thunderbolt",
+      "trick",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "rotomheat": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "hiddenpowerice",
+      "overheat",
+      "shadowball",
+      "thunderbolt",
+      "trick",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "rotommow": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "hiddenpowerice",
+      "leafstorm",
+      "shadowball",
+      "thunderbolt",
+      "trick",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "rotomwash": {
+    "level": 80,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "chestoberry",
+      "choicescarf",
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "hiddenpowerice",
+      "hydropump",
+      "painsplit",
+      "rest",
+      "shadowball",
+      "sleeptalk",
+      "substitute",
+      "thunderbolt",
+      "trick",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "sableye": {
+    "level": 88,
+    "abilities": [
+      "keeneye"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "nightshade",
+      "recover",
+      "seismictoss",
+      "taunt",
+      "toxic",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "salamence": {
+    "level": 76,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "lifeorb",
+      "lumberry"
+    ],
+    "moves": [
+      "dracometeor",
+      "dragondance",
+      "earthquake",
+      "fireblast",
+      "outrage",
+      "roost"
+    ]
+  },
+  "sandslash": {
+    "level": 88,
+    "abilities": [
+      "sandveil"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "nightslash",
+      "rapidspin",
+      "stealthrock",
+      "stoneedge",
+      "substitute",
+      "swordsdance"
+    ]
+  },
+  "sceptile": {
+    "level": 84,
+    "abilities": [
+      "overgrow"
+    ],
+    "items": [
+      "choicespecs",
+      "expertbelt",
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "energyball",
+      "focusblast",
+      "hiddenpowerfire",
+      "hiddenpowerice",
+      "leafstorm",
+      "leechseed",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "scizor": {
+    "level": 80,
+    "abilities": [
+      "technician"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bugbite",
+      "bulletpunch",
+      "pursuit",
+      "roost",
+      "superpower",
+      "swordsdance",
+      "uturn"
+    ]
+  },
+  "scyther": {
+    "level": 84,
+    "abilities": [
+      "technician"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "aerialace",
+      "brickbreak",
+      "bugbite",
+      "pursuit",
+      "quickattack",
+      "roost",
+      "swordsdance",
+      "uturn"
+    ]
+  },
+  "seaking": {
+    "level": 88,
+    "abilities": [
+      "swiftswim",
+      "waterveil"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "icebeam",
+      "megahorn",
+      "raindance",
+      "return",
+      "waterfall"
+    ]
+  },
+  "seviper": {
+    "level": 88,
+    "abilities": [
+      "shedskin"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "choicespecs",
+      "expertbelt",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquatail",
+      "darkpulse",
+      "earthquake",
+      "flamethrower",
+      "sludgebomb",
+      "suckerpunch",
+      "switcheroo"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "sharpedo": {
+    "level": 88,
+    "abilities": [
+      "roughskin"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "aquajet",
+      "crunch",
+      "earthquake",
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "waterfall"
+    ]
+  },
+  "shaymin": {
+    "level": 82,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthpower",
+      "hiddenpowerfire",
+      "hiddenpowerice",
+      "leechseed",
+      "rest",
+      "seedflare",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "shayminsky": {
+    "level": 76,
+    "abilities": [
+      "serenegrace"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers"
+    ],
+    "moves": [
+      "airslash",
+      "earthpower",
+      "hiddenpowerfire",
+      "hiddenpowerice",
+      "leechseed",
+      "seedflare",
+      "substitute"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "shedinja": {
+    "level": 88,
+    "abilities": [
+      "wonderguard"
+    ],
+    "items": [
+      "focussash"
+    ],
+    "moves": [
+      "shadowsneak",
+      "suckerpunch",
+      "swordsdance",
+      "willowisp",
+      "xscissor"
+    ]
+  },
+  "shiftry": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "expertbelt",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "darkpulse",
+      "explosion",
+      "hiddenpowerfire",
+      "leafstorm",
+      "lowkick",
+      "seedbomb",
+      "solarbeam",
+      "suckerpunch",
+      "sunnyday",
+      "swordsdance"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "shuckle": {
+    "level": 88,
+    "abilities": [
+      "gluttony"
+    ],
+    "items": [
+      "chestoberry"
+    ],
+    "moves": [
+      "encore",
+      "knockoff",
+      "rest",
+      "stealthrock",
+      "toxic"
+    ]
+  },
+  "skarmory": {
+    "level": 80,
+    "abilities": [
+      "keeneye",
+      "sturdy"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "bravebird",
+      "roost",
+      "spikes",
+      "stealthrock",
+      "whirlwind"
+    ]
+  },
+  "skuntank": {
+    "level": 88,
+    "abilities": [
+      "aftermath"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "crunch",
+      "explosion",
+      "fireblast",
+      "poisonjab",
+      "pursuit",
+      "suckerpunch",
+      "taunt"
+    ]
+  },
+  "slaking": {
+    "level": 88,
+    "abilities": [
+      "truant"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf"
+    ],
+    "moves": [
+      "doubleedge",
+      "earthquake",
+      "firepunch",
+      "icepunch",
+      "nightslash",
+      "pursuit",
+      "return"
+    ]
+  },
+  "slowbro": {
+    "level": 84,
+    "abilities": [
+      "owntempo"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "psychic",
+      "rest",
+      "slackoff",
+      "sleeptalk",
+      "surf",
+      "thunderwave",
+      "toxic",
+      "trickroom"
+    ],
+    "evs": {
+      "atk": 0,
+      "spe": 0
+    },
+    "ivs": {
+      "atk": 0,
+      "spe": 0
+    }
+  },
+  "slowking": {
+    "level": 88,
+    "abilities": [
+      "owntempo"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "icebeam",
+      "nastyplot",
+      "psychic",
+      "slackoff",
+      "surf",
+      "thunderwave",
+      "toxic",
+      "trickroom"
+    ],
+    "evs": {
+      "atk": 0,
+      "spe": 0
+    },
+    "ivs": {
+      "atk": 0,
+      "spe": 0
+    }
+  },
+  "smeargle": {
+    "level": 82,
+    "abilities": [
+      "owntempo"
+    ],
+    "items": [
+      "focussash"
+    ],
+    "moves": [
+      "counter",
+      "spikes",
+      "spore",
+      "stealthrock",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "snorlax": {
+    "level": 82,
+    "abilities": [
+      "thickfat"
+    ],
+    "items": [
+      "chestoberry",
+      "choiceband",
+      "leftovers"
+    ],
+    "moves": [
+      "bodyslam",
+      "crunch",
+      "curse",
+      "earthquake",
+      "firepunch",
+      "pursuit",
+      "rest",
+      "return",
+      "selfdestruct",
+      "sleeptalk",
+      "whirlwind"
+    ]
+  },
+  "solrock": {
+    "level": 88,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "rockpolish",
+      "stealthrock",
+      "stoneedge",
+      "zenheadbutt"
+    ]
+  },
+  "spinda": {
+    "level": 88,
+    "abilities": [
+      "owntempo",
+      "tangledfeet"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "bodyslam",
+      "encore",
+      "hypnosis",
+      "seismictoss",
+      "substitute",
+      "teeterdance",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "spiritomb": {
+    "level": 84,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "darkpulse",
+      "hiddenpowerfighting",
+      "rest",
+      "sleeptalk",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "stantler": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "energyball",
+      "hypnosis",
+      "megahorn",
+      "return",
+      "suckerpunch"
+    ]
+  },
+  "staraptor": {
+    "level": 82,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bravebird",
+      "closecombat",
+      "doubleedge",
+      "pursuit",
+      "quickattack",
+      "return",
+      "roost",
+      "substitute",
+      "uturn"
+    ]
+  },
+  "starmie": {
+    "level": 80,
+    "abilities": [
+      "naturalcure"
+    ],
+    "items": [
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "hydropump",
+      "icebeam",
+      "psychic",
+      "rapidspin",
+      "recover",
+      "surf",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "steelix": {
+    "level": 84,
+    "abilities": [
+      "rockhead"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "gyroball",
+      "roar",
+      "stealthrock",
+      "stoneedge",
+      "toxic"
+    ],
+    "evs": {
+      "spe": 0
+    },
+    "ivs": {
+      "spe": 0
+    }
+  },
+  "sudowoodo": {
+    "level": 88,
+    "abilities": [
+      "rockhead"
+    ],
+    "items": [
+      "choiceband",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "stealthrock",
+      "stoneedge",
+      "suckerpunch",
+      "toxic",
+      "woodhammer"
+    ]
+  },
+  "suicune": {
+    "level": 80,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "calmmind",
+      "hiddenpowerelectric",
+      "icebeam",
+      "rest",
+      "roar",
+      "sleeptalk",
+      "surf"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "sunflora": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "earthpower",
+      "hiddenpowerice",
+      "leafstorm",
+      "synthesis"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 2,
+      "def": 30
+    }
+  },
+  "swalot": {
+    "level": 88,
+    "abilities": [
+      "liquidooze",
+      "stickyhold"
+    ],
+    "items": [
+      "blacksludge",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "encore",
+      "explosion",
+      "icebeam",
+      "sludgebomb",
+      "toxic",
+      "yawn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "swampert": {
+    "level": 80,
+    "abilities": [
+      "torrent"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "icebeam",
+      "icepunch",
+      "roar",
+      "stealthrock",
+      "stoneedge",
+      "waterfall"
+    ]
+  },
+  "swellow": {
+    "level": 84,
+    "abilities": [
+      "guts"
+    ],
+    "items": [
+      "toxicorb"
+    ],
+    "moves": [
+      "bravebird",
+      "facade",
+      "protect",
+      "quickattack",
+      "uturn"
+    ]
+  },
+  "tangrowth": {
+    "level": 84,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "hiddenpowerfire",
+      "hiddenpowerice",
+      "leafstorm",
+      "powerwhip",
+      "rockslide",
+      "sleeppowder",
+      "stunspore",
+      "swordsdance",
+      "synthesis"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "tauros": {
+    "level": 88,
+    "abilities": [
+      "intimidate"
+    ],
+    "items": [
+      "choiceband"
+    ],
+    "moves": [
+      "doubleedge",
+      "earthquake",
+      "payback",
+      "pursuit",
+      "return",
+      "stoneedge"
+    ]
+  },
+  "tentacruel": {
+    "level": 82,
+    "abilities": [
+      "clearbody",
+      "liquidooze"
+    ],
+    "items": [
+      "blacksludge",
+      "choicescarf",
+      "choicespecs"
+    ],
+    "moves": [
+      "hydropump",
+      "icebeam",
+      "rapidspin",
+      "sludgebomb",
+      "surf",
+      "toxicspikes"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "togekiss": {
+    "level": 82,
+    "abilities": [
+      "serenegrace"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "airslash",
+      "aurasphere",
+      "fireblast",
+      "healbell",
+      "nastyplot",
+      "roost",
+      "thunderwave"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "torkoal": {
+    "level": 88,
+    "abilities": [
+      "whitesmoke"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "explosion",
+      "lavaplume",
+      "rapidspin",
+      "stealthrock",
+      "toxic",
+      "yawn"
+    ]
+  },
+  "torterra": {
+    "level": 84,
+    "abilities": [
+      "overgrow"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "leechseed",
+      "roar",
+      "rockpolish",
+      "stealthrock",
+      "stoneedge",
+      "synthesis",
+      "woodhammer"
+    ]
+  },
+  "toxicroak": {
+    "level": 84,
+    "abilities": [
+      "dryskin"
+    ],
+    "items": [
+      "blacksludge",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "crosschop",
+      "focuspunch",
+      "icepunch",
+      "substitute",
+      "suckerpunch",
+      "swordsdance"
+    ]
+  },
+  "tropius": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "expertbelt",
+      "leftovers"
+    ],
+    "moves": [
+      "aerialace",
+      "airslash",
+      "earthquake",
+      "energyball",
+      "leafblade",
+      "roost",
+      "swordsdance",
+      "toxic",
+      "whirlwind"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "typhlosion": {
+    "level": 88,
+    "abilities": [
+      "blaze"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs"
+    ],
+    "moves": [
+      "eruption",
+      "fireblast",
+      "focusblast",
+      "hiddenpowergrass",
+      "hiddenpowerrock"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "tyranitar": {
+    "level": 80,
+    "abilities": [
+      "sandstream"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "expertbelt",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "crunch",
+      "dragondance",
+      "earthquake",
+      "fireblast",
+      "firepunch",
+      "icebeam",
+      "icepunch",
+      "pursuit",
+      "stealthrock",
+      "stoneedge",
+      "superpower"
+    ]
+  },
+  "umbreon": {
+    "level": 82,
+    "abilities": [
+      "synchronize"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "curse",
+      "healbell",
+      "moonlight",
+      "payback",
+      "protect",
+      "toxic",
+      "wish"
+    ]
+  },
+  "unown": {
+    "level": 100,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "choicespecs"
+    ],
+    "moves": [
+      "hiddenpowerpsychic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 2,
+      "spe": 30
+    }
+  },
+  "ursaring": {
+    "level": 84,
+    "abilities": [
+      "guts",
+      "quickfeet"
+    ],
+    "items": [
+      "toxicorb"
+    ],
+    "moves": [
+      "closecombat",
+      "crunch",
+      "earthquake",
+      "facade",
+      "protect",
+      "swordsdance"
+    ]
+  },
+  "uxie": {
+    "level": 84,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "leftovers",
+      "lightclay"
+    ],
+    "moves": [
+      "lightscreen",
+      "psychic",
+      "reflect",
+      "stealthrock",
+      "thunderwave",
+      "uturn",
+      "yawn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "vaporeon": {
+    "level": 82,
+    "abilities": [
+      "waterabsorb"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "icebeam",
+      "protect",
+      "roar",
+      "surf",
+      "toxic",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "venomoth": {
+    "level": 88,
+    "abilities": [
+      "tintedlens"
+    ],
+    "items": [
+      "blacksludge",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "bugbuzz",
+      "psychic",
+      "roost",
+      "sleeppowder",
+      "stunspore",
+      "substitute",
+      "toxicspikes",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "venusaur": {
+    "level": 84,
+    "abilities": [
+      "overgrow"
+    ],
+    "items": [
+      "blacksludge",
+      "expertbelt",
+      "lifeorb"
+    ],
+    "moves": [
+      "earthquake",
+      "hiddenpowerice",
+      "leafstorm",
+      "leechseed",
+      "powerwhip",
+      "sleeppowder",
+      "sludgebomb",
+      "swordsdance",
+      "synthesis"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "vespiquen": {
+    "level": 88,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "attackorder",
+      "defendorder",
+      "protect",
+      "roost",
+      "substitute",
+      "toxic"
+    ],
+    "evs": {
+      "hp": 81
+    }
+  },
+  "victreebel": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "focussash",
+      "heatrock",
+      "lifeorb"
+    ],
+    "moves": [
+      "leafblade",
+      "leafstorm",
+      "sleeppowder",
+      "sludgebomb",
+      "solarbeam",
+      "suckerpunch",
+      "sunnyday",
+      "weatherball"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "vigoroth": {
+    "level": 88,
+    "abilities": [
+      "vitalspirit"
+    ],
+    "items": [
+      "choiceband",
+      "choicescarf",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bulkup",
+      "earthquake",
+      "encore",
+      "focuspunch",
+      "lowkick",
+      "nightslash",
+      "return",
+      "slackoff",
+      "substitute",
+      "suckerpunch"
+    ]
+  },
+  "vileplume": {
+    "level": 88,
+    "abilities": [
+      "chlorophyll"
+    ],
+    "items": [
+      "blacksludge",
+      "heatrock",
+      "lifeorb"
+    ],
+    "moves": [
+      "energyball",
+      "hiddenpowerfire",
+      "moonlight",
+      "sleeppowder",
+      "sludgebomb",
+      "solarbeam",
+      "sunnyday"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "volbeat": {
+    "level": 88,
+    "abilities": [
+      "swarm"
+    ],
+    "items": [
+      "focussash",
+      "leftovers"
+    ],
+    "moves": [
+      "batonpass",
+      "bugbuzz",
+      "encore",
+      "substitute",
+      "tailglow"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "wailord": {
+    "level": 88,
+    "abilities": [
+      "waterveil"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs"
+    ],
+    "moves": [
+      "hiddenpowergrass",
+      "hydropump",
+      "icebeam",
+      "selfdestruct",
+      "surf",
+      "waterspout"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "walrein": {
+    "level": 88,
+    "abilities": [
+      "thickfat"
+    ],
+    "items": [
+      "chestoberry",
+      "leftovers"
+    ],
+    "moves": [
+      "encore",
+      "icebeam",
+      "protect",
+      "rest",
+      "roar",
+      "sleeptalk",
+      "surf",
+      "toxic"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "weavile": {
+    "level": 80,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choiceband",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "icepunch",
+      "iceshard",
+      "lowkick",
+      "nightslash",
+      "pursuit",
+      "swordsdance"
+    ]
+  },
+  "weezing": {
+    "level": 84,
+    "abilities": [
+      "levitate"
+    ],
+    "items": [
+      "blacksludge",
+      "chestoberry"
+    ],
+    "moves": [
+      "fireblast",
+      "painsplit",
+      "rest",
+      "sleeptalk",
+      "sludgebomb",
+      "thunderbolt",
+      "willowisp"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "whiscash": {
+    "level": 88,
+    "abilities": [
+      "anticipation",
+      "oblivious"
+    ],
+    "items": [
+      "lifeorb"
+    ],
+    "moves": [
+      "dragondance",
+      "earthquake",
+      "stoneedge",
+      "waterfall"
+    ]
+  },
+  "wigglytuff": {
+    "level": 88,
+    "abilities": [
+      "cutecharm"
+    ],
+    "items": [
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "bodyslam",
+      "doubleedge",
+      "fireblast",
+      "healbell",
+      "protect",
+      "seismictoss",
+      "stealthrock",
+      "thunderwave",
+      "toxic",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "wobbuffet": {
+    "level": 76,
+    "abilities": [
+      "shadowtag"
+    ],
+    "items": [
+      "custapberry"
+    ],
+    "moves": [
+      "counter",
+      "destinybond",
+      "encore",
+      "mirrorcoat"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "atk": 0
+    }
+  },
+  "wormadam": {
+    "level": 88,
+    "abilities": [
+      "anticipation"
+    ],
+    "items": [
+      "choicespecs"
+    ],
+    "moves": [
+      "hiddenpowerice",
+      "hiddenpowerrock",
+      "leafstorm",
+      "psychic",
+      "signalbeam"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "def": 30
+    }
+  },
+  "wormadamsandy": {
+    "level": 88,
+    "abilities": [
+      "anticipation"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "earthquake",
+      "rest",
+      "sleeptalk",
+      "toxic"
+    ]
+  },
+  "wormadamtrash": {
+    "level": 88,
+    "abilities": [
+      "anticipation"
+    ],
+    "items": [
+      "leftovers"
+    ],
+    "moves": [
+      "gyroball",
+      "protect",
+      "stealthrock",
+      "toxic"
+    ],
+    "evs": {
+      "spe": 0
+    },
+    "ivs": {
+      "spe": 0
+    }
+  },
+  "xatu": {
+    "level": 88,
+    "abilities": [
+      "synchronize"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "focussash",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "calmmind",
+      "grassknot",
+      "heatwave",
+      "hiddenpowerfighting",
+      "psychic",
+      "roost",
+      "trick",
+      "uturn",
+      "wish"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
+  "yanmega": {
+    "level": 82,
+    "abilities": [
+      "speedboost",
+      "tintedlens"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "airslash",
+      "bugbuzz",
+      "hiddenpowerfire",
+      "hiddenpowerground",
+      "protect",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    },
+    "ivs": {
+      "spa": 30
+    }
+  },
+  "zangoose": {
+    "level": 88,
+    "abilities": [
+      "immunity"
+    ],
+    "items": [
+      "choiceband",
+      "focussash",
+      "lifeorb"
+    ],
+    "moves": [
+      "closecombat",
+      "quickattack",
+      "return",
+      "shadowclaw",
+      "swordsdance"
+    ]
+  },
+  "zapdos": {
+    "level": 80,
+    "abilities": [
+      "pressure"
+    ],
+    "items": [
+      "choicescarf",
+      "choicespecs",
+      "leftovers",
+      "lifeorb"
+    ],
+    "moves": [
+      "heatwave",
+      "hiddenpowergrass",
+      "hiddenpowerice",
+      "roost",
+      "substitute",
+      "thunderbolt",
+      "toxic",
+      "uturn"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  }
+}

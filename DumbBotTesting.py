@@ -1,0 +1,381 @@
+﻿from poke_env.player.player import Player
+from BattleUtilities import i_am_faster, get_opponent_fnt_counter
+from BattleUtilities import calculate_damage
+from BattleUtilities import calculate_atk, calculate_spa, calculate_def
+from BattleUtilities import calculate_spd, calculate_current_hp, get_current_boost
+from VirtualTeam import VirtualTeam
+from poke_env.environment.move import Move
+from poke_env.environment.weather import Weather
+from poke_env.environment.side_condition import SideCondition
+
+opponent_team = VirtualTeam()
+
+VERBOSE = True
+FAINTED = float("-inf")
+
+class AverageAI(Player):
+
+    def choose_move(self, battle):
+        opponent_team.update_team(battle)
+        if VERBOSE:
+            print("\n#################################")
+            print(f"TURN {battle.turn}")
+            print(f"My Pokemon: {battle.active_pokemon}")
+            print(f"Opponent Pokemon: {battle.opponent_active_pokemon}")
+            print("#################################")
+        if not battle.available_moves:
+            return self.create_order(self.find_best_switch(battle, is_forced=True)[0])
+        ohko_move = self.kill_if_ohko(battle)
+        if ohko_move is not None:
+            return self.create_order(ohko_move)
+        switch = self.should_i_switch(battle)
+        if switch is not None:
+            if VERBOSE:
+                print(f"Switch to: {switch.species}\n")
+            return self.create_order(switch)
+        return self.attack(battle)
+
+
+    def attack(self, battle):
+        # best_move = max(battle.available_moves, key=lambda move: move.base_power)
+        best_move = battle.available_moves[0]
+        best_value = 0 # dumb init
+        ohko_moves = []
+        for move in battle.available_moves:
+            if self.can_kill(move, battle.active_pokemon, battle.opponent_active_pokemon, battle):
+                ohko_moves.append(move)
+            value = self.evaluate_move(move,
+                                       battle.active_pokemon,
+                                       battle.opponent_active_pokemon,
+                                       battle)
+            if value > best_value:
+                best_value = value
+                best_move = move
+        if len(ohko_moves) != 0:
+            best_move = max(ohko_moves, key=lambda move: move.accuracy)
+        if VERBOSE:
+            print(f"Selected move: {best_move.id}, Value: {best_value}\n")
+        return self.create_order(best_move)
+
+
+    def should_i_switch(self, battle):
+        current_value = self.current_pokemon_value(battle)
+        best_switch, switch_value = self.find_best_switch(battle, is_forced=(current_value==FAINTED))
+        if best_switch == None:
+            return None
+        if VERBOSE:
+            print(f"\nActive pkmn value: {current_value}, Best switch: {best_switch.species} ({switch_value})\n")
+        if switch_value > current_value:
+            return best_switch
+        return None
+    
+
+    def find_best_switch(self, battle, is_forced):
+        best_value = FAINTED
+        best_switch = None
+        for pokemon in battle.available_switches:
+            ###
+            revenge_value = 0
+            if is_forced:
+                revenge_killer = self.is_revenge_killer(pokemon,
+                                                       battle.opponent_active_pokemon,
+                                                       battle)
+                if revenge_killer:
+                    revenge_value = 15
+            ###
+            # Points evaluation
+            faster = i_am_faster(pokemon, battle.opponent_active_pokemon)
+            type_value = self.evaluate_type_advantage(pokemon, battle.opponent_active_pokemon)
+            hp_value = self.evaluate_hp(pokemon)
+            best_defence_value = self.evaluate_defences(pokemon, battle.opponent_active_pokemon)
+            atk_value = self.evaluate_strongest_attack(pokemon, battle.opponent_active_pokemon, battle)
+            opponent_best_damage = self.find_opponent_best_damage(pokemon,
+                                                                  battle.opponent_active_pokemon,
+                                                                  battle,
+                                                                  strict=True)
+            opp_best_move_value = -self.damage_to_value_conversion(opponent_best_damage)
+            if faster:
+                if is_forced:
+                    opp_best_move_value /= 4
+                else:
+                    opp_best_move_value /= 2
+            # Penalize type disadvantage when switching in the middle of the turn
+            if not is_forced: 
+                if type_value < 0:
+                    type_value *= 4
+            # When switch is forced:
+            else:
+                # Still penalize slow pokemon with low hp
+                if not faster:
+                    hp_value /= 3
+                # If faster, do not penalize low hp
+                else:
+                    hp_value = 0
+            # Strengthen attack points when faster
+            if faster:
+                atk_value *= 1.5
+            # Calculate final points
+            total_value = (type_value + 
+                           best_defence_value +
+                           atk_value + 
+                           hp_value +
+                           opp_best_move_value + 
+                           revenge_value
+                           )
+            if total_value > best_value:
+                best_value = total_value
+                best_switch = pokemon
+            if VERBOSE:
+                print(f"\nName: {pokemon.species}\nType: {type_value}, Def: {best_defence_value}, "
+                      f"HP: {hp_value}, Atk: {atk_value}, Opp DMG: {opp_best_move_value}, "
+                      f"Revenge: {revenge_value}, Is faster: {faster}")
+        return (best_switch, best_value)
+
+
+    def current_pokemon_value(self, battle):
+        momentum_value = 2
+        if battle.active_pokemon.fainted:
+            return FAINTED
+        type_value = self.evaluate_type_advantage(battle.active_pokemon,
+                                                  battle.opponent_active_pokemon)
+        best_defence_value = self.evaluate_defences(battle.active_pokemon, 
+                                                    battle.opponent_active_pokemon)
+        atk_value = self.evaluate_strongest_attack(battle.active_pokemon, 
+                                                   battle.opponent_active_pokemon, 
+                                                   battle)
+        if i_am_faster(battle.active_pokemon, battle.opponent_active_pokemon):
+            atk_value *= 1.5
+        total_value = type_value + best_defence_value + atk_value + momentum_value
+        return total_value
+    
+
+    def evaluate_move(self, move, my_pokemon, opponent_pokemon, battle):
+        damage = calculate_damage(move, my_pokemon, opponent_pokemon, battle, True)
+        value = self.damage_to_value_conversion(damage)
+        opponent_best_damage = self.find_opponent_best_damage(my_pokemon, 
+                                                              opponent_pokemon, 
+                                                              battle, 
+                                                              strict=False)
+        my_hp = calculate_current_hp(my_pokemon)
+        hp_loss = opponent_best_damage / my_hp
+        boost_value = self.calculate_boost_value(move, hp_loss, my_pokemon, opponent_pokemon)
+        hazard_value = self.calculate_hazard_value(move, hp_loss, my_pokemon, battle)
+        value = value + boost_value + hazard_value
+        return value
+
+
+    def calculate_boost_value(self, move, hp_loss, my_pokemon, opponent_pokemon):
+        boost_value = 0
+        if my_pokemon.current_hp_fraction > (1/2):
+            # if boost move
+            if move.boosts is not None:
+                # if self boost -> add boost_value
+                if move.target == "self":
+                    for k,v in move.boosts.items():
+                        boost_increase = (6 - get_current_boost(my_pokemon, k)) / 6
+                        boost_value += v * boost_increase
+                # if target malus -> add -boost_value
+                else:
+                    for k,v in move.boosts.items():
+                        boost_increase = (-6 - get_current_boost(opponent_pokemon, k)) / 6
+                        boost_value += v * boost_increase
+                # Divider to increase boost moves value when the opponent pokemon deals 
+                # little damage to our pokemon
+                boost_booster = (2 * hp_loss) ** 3
+                boost_value /= (boost_booster + 0.05)  # add 0.05 to avoid divide by zero
+                return boost_value
+        return 0
+
+
+    def calculate_hazard_value(self, move, hp_loss, my_pokemon, battle):
+        hazard_value = 0
+        fnt_counter = get_opponent_fnt_counter(battle)
+        pokemon_left = 6 - fnt_counter
+        # When opponent attack is not going to kill
+        if hp_loss < 1:
+            if (move.id == "stealthrock" and
+                SideCondition.STEALTH_ROCK not in battle.opponent_side_conditions):
+                # Function increasing value in the first turns of the fight
+                hazard_value = (pokemon_left / 2) ** 2.2
+                if hazard_value <= 0:
+                    hazard_value = 0
+            elif move.id == "spikes":
+                if SideCondition.SPIKES in battle.opponent_side_conditions:
+                    layer_num = battle.opponent_side_conditions[SideCondition.SPIKES]
+                    if layer_num < 3:
+                        hazard_value = ((pokemon_left / 2) ** 2.2)
+                        hazard_value -= hazard_value * layer_num / 4
+                else:
+                    hazard_value = (pokemon_left / 2) ** 2.2
+            elif move.id == "toxicspikes":
+                if SideCondition.TOXIC_SPIKES in battle.opponent_side_conditions:
+                    layer_num = battle.opponent_side_conditions[SideCondition.TOXIC_SPIKES]
+                    if layer_num < 2:
+                        hazard_value = ((pokemon_left / 2) ** 2.2)
+                        hazard_value -= hazard_value * layer_num / 3
+                else:
+                    hazard_value = (pokemon_left / 2) ** 2.2
+        return hazard_value
+    
+
+    def find_opponent_best_damage(self, my_pokemon, opponent_pokemon, battle, strict):
+        pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
+        move_names = pokemon.get_moves()
+        if not strict and len(move_names) < 4:
+            move_names = pokemon.get_possible_moves()
+        best_damage = 0
+        for move_name in move_names:
+            move = Move(move_name)
+            damage = calculate_damage(move,
+                                      opponent_pokemon,
+                                      my_pokemon,
+                                      battle,
+                                      False,
+                                      1)
+            if damage > best_damage:
+                best_damage = damage
+        # if VERBOSE:
+        #     print(f"Opponent moves: {move_names}, Best value: {best_damage}\n")
+        return best_damage
+
+
+    def evaluate_type_advantage(self, my_pokemon, opponent_pokemon):
+        advantage = my_pokemon.damage_multiplier(opponent_pokemon.type_1)
+        if opponent_pokemon.type_2:
+            advantage = max(advantage, my_pokemon.damage_multiplier(opponent_pokemon.type_2))
+        if advantage == 0:
+            advantage = -2
+        elif advantage < 1:
+            advantage = -((1/advantage) - 1)
+        else:
+            advantage -= 1
+        return -advantage * 2.5
+    
+
+    def evaluate_strongest_attack(self, my_pokemon, opponent_pokemon, battle):
+        best_damage = 0
+        for _, move in my_pokemon.moves.items():
+            damage = calculate_damage(move, my_pokemon, opponent_pokemon, battle, True)
+            if damage > best_damage:
+                best_damage = damage
+        return self.damage_to_value_conversion(best_damage)
+
+
+    def damage_to_value_conversion(self, damage):
+        # exponential function for softening high damages
+        return (damage**.53) / 3
+
+
+    def evaluate_defences(self, my_pokemon, opponent_pokemon):
+        opponent_atk = calculate_atk(opponent_pokemon)
+        opponent_spa = calculate_spa(opponent_pokemon)
+        my_def = calculate_def(my_pokemon)
+        my_spd = calculate_spd(my_pokemon)
+        if abs(opponent_atk - opponent_spa) < 50:
+            ratio = max((opponent_atk/my_def), (opponent_spa/my_spd))
+            if ratio < 1:
+                ratio = -((1 / ratio) - 1)
+            else:
+                ratio -= 1
+            return -ratio * 4
+        elif opponent_atk > opponent_spa:
+            ratio = opponent_atk/my_def
+            if ratio < 1:
+                ratio = -((1 / ratio) - 1)
+            else:
+                ratio -= 1
+            return -ratio * 4
+        else:
+            ratio = opponent_spa/my_spd
+            if ratio < 1:
+                ratio = -((1 / ratio) - 1)
+            else:
+                ratio -= 1
+            return -ratio * 4
+
+    def evaluate_hp(self, pokemon):
+        hp = calculate_current_hp(pokemon)
+        # Non-linear function :3
+        hp_value = (1000 / (hp + 10))**0.9 - 4
+        return -hp_value
+
+    def handle_odd_moves(self, move, best_move, user_pokemon, opponent_pokemon, battle):
+        if move.id == "fakeout" and user_pokemon.first_turn == True:
+            print("Go straight with Fake out")
+            return move
+        # TODO: fix explosion
+        # if i'm slower, explode when hp left are < 1/2
+        elif move.id == "explosion" and move == best_move and user_pokemon.current_hp_fraction < (1/2):
+            if not i_am_faster(user_pokemon, opponent_pokemon):
+                return move
+            else:
+                # or if i'm faster, explode when hp left is < 1/4
+                if user_pokemon.current_hp_fraction < (1/4):
+                    return move
+        # solarbeam
+        elif (move.id == "solarbeam" and
+              battle.weather != Weather.SUNNYDAY):
+            for m in battle.available_moves:
+                if m.id == "sunnyday":
+                    return m
+        elif (move.id == "sunnyday" and
+              battle.weather != Weather.SUNNYDAY and
+              user_pokemon.current_hp_fraction > (2/3)):
+            return move
+        elif (move.id == "raindance" and
+              battle.weather != Weather.RAINDANCE and
+              user_pokemon.current_hp_fraction > (2/3)):
+            return move
+        # transform
+        # pursuit
+        return None
+    
+
+    def is_revenge_killer(self, user_pokemon, target_pokemon, battle):
+        for _, move in user_pokemon.moves.items():
+            if self.can_kill(move, user_pokemon, target_pokemon, battle):
+                if move.priority > 0:
+                    return True
+                if i_am_faster(user_pokemon, target_pokemon):
+                    return True
+        return False
+
+
+    def kill_if_ohko(self, battle):
+        if not battle.available_moves:
+            return None
+        ohko_moves = []
+        for move in battle.available_moves:
+            if self.can_kill(move, battle.active_pokemon, battle.opponent_active_pokemon, battle):
+                ohko_moves.append(move)
+        if len(ohko_moves) == 0:
+            return None
+        for move in ohko_moves:
+            if move.priority > 0:
+                if VERBOSE:
+                    print(f"\nOHKO priority: {move.id}\n")
+                return move
+        if not i_am_faster(battle.active_pokemon, battle.opponent_active_pokemon):
+            return None
+        ohko_moves = list(filter(lambda move: move.priority == 0, ohko_moves))
+        if len(ohko_moves) == 0:
+            return None
+        best_ohko_move = max(ohko_moves, key=lambda move: move.accuracy)
+        if VERBOSE:
+            print(f"\nOHKO simple move: {best_ohko_move.id}\n")
+        return best_ohko_move
+    
+    def can_kill(self, move, user_pokemon, target_pokemon, battle):
+        target_left_hp = calculate_current_hp(target_pokemon)
+        damage = calculate_damage(move, user_pokemon, target_pokemon, battle, True, rng_modifier=0.85)
+        if damage >= target_left_hp:
+            return True
+        return False
+
+    def handle_opponent_sweeper():
+        # TODO: look for scarf or sash
+        pass
+
+    def handle_shedinja():
+        # TODO: handle shedinja
+        pass
