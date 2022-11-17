@@ -5,10 +5,11 @@ from poke_env import ShowdownServerConfiguration, PlayerConfiguration
 
 
 async def main():
-    # We create a random player
+    # We create a player for gen 4 random battles
     player = AverageAI(
         player_configuration=PlayerConfiguration("your_username", "your_password"),
         server_configuration=ShowdownServerConfiguration,
+        battle_format="gen4randombattle"
     )
 
     # Sending challenges to "your_username"
