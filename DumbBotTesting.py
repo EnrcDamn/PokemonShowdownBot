@@ -164,7 +164,11 @@ class AverageAI(Player):
         hp_loss = opponent_best_damage / my_hp
         boost_value = self.calculate_boost_value(move, hp_loss, my_pokemon, opponent_pokemon)
         hazard_value = self.calculate_hazard_value(move, hp_loss, my_pokemon, battle)
-        status_value = self.calculate_status_value(move, hp_loss, my_pokemon, opponent_pokemon)
+        status_value = self.calculate_status_value(move,
+                                                   hp_loss,
+                                                   my_pokemon,
+                                                   opponent_pokemon,
+                                                   battle)
         value = value + boost_value + hazard_value + status_value
         return value
 
@@ -224,31 +228,34 @@ class AverageAI(Player):
         return hazard_value
     
 
-    def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon):
+    def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
         status_value = 0
         virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
         possible_moves = virtual_pokemon.get_possible_moves()
-        if hp_loss < 1:
+        if hp_loss < 1 or SideCondition.SAFEGUARD not in battle.opponent_side_conditions:
             # if i'm faster
             if (i_am_faster(my_pokemon, opponent_pokemon) or 
                 not Effect.SUBSTITUTE in opponent_pokemon.effects):
-                status_value = self.evaluate_burn(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_para(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_sleep(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_poison(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_toxic(status_value, move, my_pokemon, opponent_pokemon)
+                status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_para(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
             # if i'm slower
             elif ("substitute" not in possible_moves or 
                 not Effect.SUBSTITUTE in opponent_pokemon.effects):
-                status_value = self.evaluate_burn(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_para(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_sleep(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_poison(status_value, move, my_pokemon, opponent_pokemon)
-                status_value = self.evaluate_toxic(status_value, move, my_pokemon, opponent_pokemon)
+                status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_para(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
+            if (opponent_pokemon.ability == "leafguard" and
+                battle.weather == Weather.SUNNYDAY):
+                status_value = 0
         return status_value
-    
 
-    def evaluate_burn(self, status_value, move, user_pokemon, target_pokemon):
+
+    def evaluate_burn(self, status_value, move, target_pokemon):
         if move.status == Status.BRN and target_pokemon.status == None:
             # fire type / flashfire immunity
             if (target_pokemon.type_1 != PokemonType.FIRE or
@@ -259,48 +266,58 @@ class AverageAI(Player):
                     target_pokemon.ability != "waterbubble" or
                     target_pokemon.ability != "comatose"):
                     if target_pokemon.base_stats["atk"] > target_pokemon.base_stats["spa"]:
-                        status_value = 12
+                        status_value = 10
                     else:
                         status_value = 5
-                if (target_pokemon.ability == "guts" or
-                    target_pokemon.ability == "marvelscale" or
-                    target_pokemon.ability == "quickfeet" or
-                    target_pokemon.ability == "flareboost"):
+                elif (target_pokemon.ability == "guts" or
+                      target_pokemon.ability == "marvelscale" or
+                      target_pokemon.ability == "quickfeet" or
+                      target_pokemon.ability == "flareboost"):
                     status_value = -5
         return status_value
 
 
-    def evaluate_para(self, status_value, move, user_pokemon, target_pokemon):
+    def evaluate_para(self, status_value, move, target_pokemon):
         # electric type immunity and grass immunity to stunspore: from gen 6 onward
         if move.status == Status.PAR and target_pokemon.status == None:
-            # linear function -> status_value = 10 at base speed = 100
-            status_value = target_pokemon.base_stats["spe"] / 10
+            # TODO: base_speed or calculate_speed()?
+            if (target_pokemon.ability != "limber" or
+                target_pokemon.ability != "comatose"):
+                status_value = target_pokemon.base_stats["spe"] / 10
             if ((target_pokemon.type_1 == PokemonType.GROUND or
                 target_pokemon.type_2 == PokemonType.GROUND) and
                 move.id == "thunderwave"):
                 status_value = 0
+            if target_pokemon.ability == "magicguard":
+                status_value /= 2
+            elif (target_pokemon.ability == "guts" or
+                  target_pokemon.ability == "marvelscale" or
+                  target_pokemon.ability == "quickfeet" or
+                  target_pokemon.ability == "flareboost"):
+                status_value = -5
         return status_value
 
 
-    def evaluate_sleep(self, status_value, move, user_pokemon, target_pokemon):
+    def evaluate_sleep(self, status_value, move, target_pokemon):
         # grass immunity to sleep powder from gen 6 onward 
+        # TODO: implement yawn, abilities
         if move.status == Status.SLP and target_pokemon.status == None:
             if (target_pokemon.ability != "vitalspirit" or
                 target_pokemon.ability != "insomnia"):
                 if move.accuracy >= 1:
-                    status_value = 12
+                    status_value = 10
                 elif move.accuracy >= 0.7:
                     status_value = 8
                 else:
                     status_value = 5
         return status_value
 
-    def evaluate_poison(self, status_value, move, user_pokemon, target_pokemon):
+    def evaluate_poison(self, status_value, move, target_pokemon):
         if move.status == Status.PSN and target_pokemon.status == None:
             status_value = 10
         return status_value
 
-    def evaluate_toxic(self, status_value, move, user_pokemon, target_pokemon):
+    def evaluate_toxic(self, status_value, move, target_pokemon):
         if move.status == Status.TOX and target_pokemon.status == None:
             status_value = 10
         return status_value
