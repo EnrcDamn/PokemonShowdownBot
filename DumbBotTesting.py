@@ -7,6 +7,10 @@ from VirtualTeam import VirtualTeam
 from poke_env.environment.move import Move
 from poke_env.environment.weather import Weather
 from poke_env.environment.side_condition import SideCondition
+from poke_env.environment.status import Status
+from poke_env.environment.effect import Effect
+from poke_env.environment.pokemon_type import PokemonType
+
 
 opponent_team = VirtualTeam()
 
@@ -160,7 +164,8 @@ class AverageAI(Player):
         hp_loss = opponent_best_damage / my_hp
         boost_value = self.calculate_boost_value(move, hp_loss, my_pokemon, opponent_pokemon)
         hazard_value = self.calculate_hazard_value(move, hp_loss, my_pokemon, battle)
-        value = value + boost_value + hazard_value
+        status_value = self.calculate_status_value(move, hp_loss, my_pokemon, opponent_pokemon)
+        value = value + boost_value + hazard_value + status_value
         return value
 
 
@@ -172,6 +177,7 @@ class AverageAI(Player):
                 # if self boost -> add boost_value
                 if move.target == "self":
                     for k,v in move.boosts.items():
+                        # TODO: fix boost value never 0 bug
                         boost_increase = (6 - get_current_boost(my_pokemon, k)) / 6
                         boost_value += v * boost_increase
                 # if target malus -> add -boost_value
@@ -217,6 +223,62 @@ class AverageAI(Player):
                     hazard_value = (pokemon_left / 2) ** 2.2
         return hazard_value
     
+
+    def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon):
+        status_value = 0
+        virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
+        possible_moves = virtual_pokemon.get_possible_moves()
+        if hp_loss < 1:
+            # if i'm faster
+            if (i_am_faster(my_pokemon, opponent_pokemon) or 
+                not Effect.SUBSTITUTE in opponent_pokemon.effects):
+                status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_para(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
+            # if i'm slower
+            elif ("substitute" not in possible_moves or 
+                not Effect.SUBSTITUTE in opponent_pokemon.effects):
+                status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_para(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
+        return status_value
+    
+
+    def evaluate_burn(self, status_value, move, target_pokemon):
+        if move.status == Status.BRN and target_pokemon.status == None:
+            if (target_pokemon.type_1 != PokemonType.FIRE or
+                target_pokemon.type_2 != PokemonType.FIRE or
+                target_pokemon.ability != "flashfire"):
+                if target_pokemon.base_stats["atk"] > target_pokemon.base_stats["spa"]:
+                    status_value += 10
+                else:
+                    status_value += 5
+        return status_value
+
+    def evaluate_para(self, status_value, move, target_pokemon):
+        if move.status == Status.PAR and target_pokemon.status == None:
+            status_value += 10
+        return status_value
+
+    def evaluate_sleep(self, status_value, move, target_pokemon):
+        if move.status == Status.SLP and target_pokemon.status == None:
+            status_value += 10
+        return status_value
+
+    def evaluate_poison(self, status_value, move, target_pokemon):
+        if move.status == Status.PSN and target_pokemon.status == None:
+            status_value += 10
+        return status_value
+
+    def evaluate_toxic(self, status_value, move, target_pokemon):
+        if move.status == Status.TOX and target_pokemon.status == None:
+            status_value += 10
+        return status_value
+
 
     def find_opponent_best_damage(self, my_pokemon, opponent_pokemon, battle, strict):
         pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
