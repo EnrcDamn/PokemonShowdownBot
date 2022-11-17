@@ -250,33 +250,41 @@ class AverageAI(Player):
 
     def evaluate_burn(self, status_value, move, target_pokemon):
         if move.status == Status.BRN and target_pokemon.status == None:
+            # fire type / flashfire immunity
             if (target_pokemon.type_1 != PokemonType.FIRE or
                 target_pokemon.type_2 != PokemonType.FIRE or
                 target_pokemon.ability != "flashfire"):
                 if target_pokemon.base_stats["atk"] > target_pokemon.base_stats["spa"]:
-                    status_value += 10
+                    status_value = 12
                 else:
-                    status_value += 5
+                    status_value = 5
         return status_value
 
     def evaluate_para(self, status_value, move, target_pokemon):
+        # electric type immunity and grass immunity to stunspore: from gen 6 onward
         if move.status == Status.PAR and target_pokemon.status == None:
-            status_value += 10
+            # linear function -> status_value = 10 at base speed = 100
+            status_value = target_pokemon.base_stats["spe"] / 10
+            # ground type immunity to thunderwave
+            if ((target_pokemon.type_1 == PokemonType.GROUND or
+                target_pokemon.type_2 == PokemonType.GROUND) and
+                move.id == "thunderwave"):
+                status_value = 0
         return status_value
 
     def evaluate_sleep(self, status_value, move, target_pokemon):
         if move.status == Status.SLP and target_pokemon.status == None:
-            status_value += 10
+            status_value = 10
         return status_value
 
     def evaluate_poison(self, status_value, move, target_pokemon):
         if move.status == Status.PSN and target_pokemon.status == None:
-            status_value += 10
+            status_value = 10
         return status_value
 
     def evaluate_toxic(self, status_value, move, target_pokemon):
         if move.status == Status.TOX and target_pokemon.status == None:
-            status_value += 10
+            status_value = 10
         return status_value
 
 
