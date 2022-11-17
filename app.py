@@ -23,7 +23,7 @@ async def main():
     # Playing n games on the ladder
     await player.ladder(n_games=1)
 
-    # Print the rating of the player and its opponent after each battle
+    # Print the rating of the player at the end of the last battle
     for i, battle in enumerate(player.battles.values()):
         if i == 0:
             first_rating = battle.rating
