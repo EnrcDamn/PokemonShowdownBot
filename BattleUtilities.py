@@ -36,7 +36,7 @@ def calculate_atk(pokemon):
     attack += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
     attack = (attack * pokemon.level) / 100
     attack += 5
-    boost = get_current_boost(pokemon, "atk")
+    boost = boost_multiplier(pokemon, "atk")
     return attack * boost
     
 def calculate_def(pokemon):
@@ -44,7 +44,7 @@ def calculate_def(pokemon):
     defense += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
     defense = (defense * pokemon.level) / 100
     defense += 5
-    boost = get_current_boost(pokemon, "def")
+    boost = boost_multiplier(pokemon, "def")
     return defense * boost
 
 def calculate_spa(pokemon):
@@ -52,7 +52,7 @@ def calculate_spa(pokemon):
     sp_attack += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
     sp_attack = (sp_attack * pokemon.level) / 100
     sp_attack += 5
-    boost = get_current_boost(pokemon, "spa")
+    boost = boost_multiplier(pokemon, "spa")
     return sp_attack * boost
 
 def calculate_spd(pokemon):
@@ -60,7 +60,7 @@ def calculate_spd(pokemon):
     sp_defense += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
     sp_defense = (sp_defense * pokemon.level) / 100
     sp_defense += 5
-    boost = get_current_boost(pokemon, "spd")
+    boost = boost_multiplier(pokemon, "spd")
     return sp_defense * boost
 
 def calculate_spe(pokemon):
@@ -71,10 +71,10 @@ def calculate_spe(pokemon):
     speed += 5
     if Effect.SLOW_START in pokemon.effects:
         speed /= 2
-    boost = get_current_boost(pokemon, "spe")
+    boost = boost_multiplier(pokemon, "spe")
     return speed * boost
 
-def get_current_boost(pokemon, stat_name):
+def boost_multiplier(pokemon, stat_name):
     current_boost = pokemon.boosts[stat_name]
     bonus = 1 + 0.5 * abs(current_boost)
     if current_boost < 0:   # malus
@@ -298,6 +298,7 @@ def handle_abilities(damage, move, move_base_power, user_pokemon, target_pokemon
         if Effect.SLOW_START in user_pokemon.effects and move.category == MoveCategory.PHYSICAL:
             damage *= 0.5
     elif user_pokemon.ability != "moldbreaker":
+        # TODO: thick fat
         if move.type == PokemonType.GROUND and target_pokemon.ability == "levitate":
             return 0
         elif move.type == PokemonType.WATER and target_pokemon.ability == "waterabsorb":

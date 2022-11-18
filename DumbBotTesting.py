@@ -2,7 +2,7 @@
 from BattleUtilities import i_am_faster, get_opponent_fnt_counter
 from BattleUtilities import calculate_damage
 from BattleUtilities import calculate_atk, calculate_spa, calculate_def
-from BattleUtilities import calculate_spd, calculate_current_hp, get_current_boost
+from BattleUtilities import calculate_spd, calculate_current_hp
 from VirtualTeam import VirtualTeam
 from poke_env.environment.move import Move
 from poke_env.environment.weather import Weather
@@ -182,16 +182,16 @@ class AverageAI(Player):
                 if move.target == "self":
                     for k,v in move.boosts.items():
                         # TODO: fix boost value never 0 bug
-                        boost_increase = (6 - get_current_boost(my_pokemon, k)) / 6
+                        boost_increase = (6 - my_pokemon.boosts[k]) / 6
                         boost_value += v * boost_increase
                 # if target malus -> add -boost_value
                 else:
                     for k,v in move.boosts.items():
-                        boost_increase = (-6 - get_current_boost(opponent_pokemon, k)) / 6
+                        boost_increase = (-6 - opponent_pokemon.boosts[k]) / 6
                         boost_value += v * boost_increase
                 # Divider to increase boost moves value when the opponent pokemon deals 
                 # little damage to our pokemon
-                boost_booster = (2 * hp_loss) ** 3
+                boost_booster = (1.7 * hp_loss) ** 3
                 boost_value /= (boost_booster + 0.05)  # add 0.05 to avoid divide by zero
                 return boost_value
         return 0
@@ -232,6 +232,9 @@ class AverageAI(Player):
         status_value = 0
         virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
         possible_moves = virtual_pokemon.get_possible_moves()
+        if (opponent_pokemon.ability == "leafguard" and
+            battle.weather == Weather.SUNNYDAY):
+            return 0
         if hp_loss < 1 or SideCondition.SAFEGUARD not in battle.opponent_side_conditions:
             # if i'm faster
             if (i_am_faster(my_pokemon, opponent_pokemon) or 
@@ -249,9 +252,6 @@ class AverageAI(Player):
                 status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
-            if (opponent_pokemon.ability == "leafguard" and
-                battle.weather == Weather.SUNNYDAY):
-                status_value = 0
         return status_value
 
 
