@@ -237,7 +237,7 @@ class AverageAI(Player):
             return 0
         if hp_loss < 1 or SideCondition.SAFEGUARD not in battle.opponent_side_conditions:
             # if i'm faster
-            if (i_am_faster(my_pokemon, opponent_pokemon) or 
+            if (i_am_faster(my_pokemon, opponent_pokemon) and 
                 not Effect.SUBSTITUTE in opponent_pokemon.effects):
                 status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_para(status_value, move, opponent_pokemon)
@@ -245,7 +245,7 @@ class AverageAI(Player):
                 status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
             # if i'm slower
-            elif ("substitute" not in possible_moves or 
+            elif ("substitute" not in possible_moves and 
                 not Effect.SUBSTITUTE in opponent_pokemon.effects):
                 status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_para(status_value, move, opponent_pokemon)
