@@ -272,6 +272,10 @@ def handle_abilities(damage, move, move_base_power, user_pokemon, target_pokemon
             damage *= 1.5
         elif user_pokemon.status == Status.BRN:
             damage *= 3     # x3 -> balancing with x0.5 of burn
+    elif user_pokemon.ability == "hugepower" and move.category == MoveCategory.PHYSICAL:
+        damage *= 2
+    elif user_pokemon.ability == "purepower" and move.category == MoveCategory.PHYSICAL:
+        damage *= 2 
     elif Effect.FLASH_FIRE in user_pokemon.effects and move.type == PokemonType.FIRE:
         damage *= 1.5
     elif user_pokemon.ability == "tintedlens" and target_pokemon.damage_multiplier(move) < 1:
@@ -304,6 +308,8 @@ def handle_abilities(damage, move, move_base_power, user_pokemon, target_pokemon
         elif move.type == PokemonType.WATER and target_pokemon.ability == "waterabsorb":
             return 0
         elif move.type == PokemonType.WATER and target_pokemon.ability == "stormdrain":
+            return 0
+        elif move.type == PokemonType.WATER and target_pokemon.ability == "dryskin":
             return 0
         elif move.type == PokemonType.ELECTRIC and target_pokemon.ability == "voltabsorb":
             return 0
