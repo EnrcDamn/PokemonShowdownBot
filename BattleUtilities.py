@@ -302,8 +302,10 @@ def handle_abilities(damage, move, move_base_power, user_pokemon, target_pokemon
         if Effect.SLOW_START in user_pokemon.effects and move.category == MoveCategory.PHYSICAL:
             damage *= 0.5
     elif user_pokemon.ability != "moldbreaker":
-        # TODO: thick fat
-        if move.type == PokemonType.GROUND and target_pokemon.ability == "levitate":
+        if ((move.type == PokemonType.FIRE or move.type == PokemonType.ICE) and
+             target_pokemon.ability == "thickfat"):
+            damage *= 0.5
+        elif move.type == PokemonType.GROUND and target_pokemon.ability == "levitate":
             return 0
         elif move.type == PokemonType.WATER and target_pokemon.ability == "waterabsorb":
             return 0
