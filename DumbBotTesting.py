@@ -235,13 +235,16 @@ class AverageAI(Player):
         if (opponent_pokemon.ability == "leafguard" and
             battle.weather == Weather.SUNNYDAY):
             return 0
+        if (opponent_pokemon.ability == "hydration" and
+            battle.weather == Weather.RAINDANCE):
+            return 0
         if hp_loss < 1 or SideCondition.SAFEGUARD not in battle.opponent_side_conditions:
             # if i'm faster
             if (i_am_faster(my_pokemon, opponent_pokemon) and 
                 not Effect.SUBSTITUTE in opponent_pokemon.effects):
                 status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_para(status_value, move, opponent_pokemon)
-                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon, battle)
                 status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
             # if i'm slower
@@ -249,7 +252,7 @@ class AverageAI(Player):
                 not Effect.SUBSTITUTE in opponent_pokemon.effects):
                 status_value = self.evaluate_burn(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_para(status_value, move, opponent_pokemon)
-                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon)
+                status_value = self.evaluate_sleep(status_value, move, opponent_pokemon, battle)
                 status_value = self.evaluate_poison(status_value, move, opponent_pokemon)
                 status_value = self.evaluate_toxic(status_value, move, opponent_pokemon)
         return status_value
@@ -298,12 +301,19 @@ class AverageAI(Player):
         return status_value
 
 
-    def evaluate_sleep(self, status_value, move, target_pokemon):
-        # grass immunity to sleep powder from gen 6 onward 
-        # TODO: implement yawn, abilities
+    def evaluate_sleep(self, status_value, move, target_pokemon, battle):
+        # grass immunity to sleep powder from gen 6 onward
+        if move.id == "yawn" and target_pokemon.status == None:
+            if (target_pokemon.ability != "vitalspirit" or
+                target_pokemon.ability != "insomnia" or
+                target_pokemon.ability != "comatose"):
+                if target_pokemon.first_turn:
+                    return 5
+                return 10
         if move.status == Status.SLP and target_pokemon.status == None:
             if (target_pokemon.ability != "vitalspirit" or
-                target_pokemon.ability != "insomnia"):
+                target_pokemon.ability != "insomnia" or
+                target_pokemon.ability != "comatose"):
                 if move.accuracy >= 1:
                     status_value = 10
                 elif move.accuracy >= 0.7:
