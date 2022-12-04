@@ -89,6 +89,14 @@ def i_am_faster(my_pokemon, opponent_pokemon):
     return False
 
 
+def get_my_fnt_counter(battle):
+    fnt_counter = 0
+    for _, pkmn in battle.team.items():
+        if pkmn.status == Status.FNT:
+            fnt_counter += 1
+    return fnt_counter
+
+
 def get_opponent_fnt_counter(battle):
     fnt_counter = 0
     for _, pkmn in battle.opponent_team.items():

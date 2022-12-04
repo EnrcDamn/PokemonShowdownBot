@@ -1,6 +1,7 @@
-﻿from poke_env.player.player import Player
-from BattleUtilities import i_am_faster, get_opponent_fnt_counter
-from BattleUtilities import calculate_damage
+﻿import math
+from poke_env.player.player import Player
+from BattleUtilities import get_opponent_fnt_counter, get_my_fnt_counter
+from BattleUtilities import i_am_faster, calculate_damage
 from BattleUtilities import calculate_atk, calculate_spa, calculate_def
 from BattleUtilities import calculate_spd, calculate_current_hp
 from VirtualTeam import VirtualTeam
@@ -48,10 +49,12 @@ class AverageAI(Player):
         for move in battle.available_moves:
             if self.can_kill(move, battle.active_pokemon, battle.opponent_active_pokemon, battle):
                 ohko_moves.append(move)
-            value = self.evaluate_move(move,
-                                       battle.active_pokemon,
-                                       battle.opponent_active_pokemon,
-                                       battle)
+            value = self.evaluate_move(
+                move,
+                battle.active_pokemon,
+                battle.opponent_active_pokemon,
+                battle
+                )
             if value > best_value:
                 best_value = value
                 best_move = move
@@ -81,9 +84,11 @@ class AverageAI(Player):
             ###
             revenge_value = 0
             if is_forced:
-                revenge_killer = self.is_revenge_killer(pokemon,
-                                                       battle.opponent_active_pokemon,
-                                                       battle)
+                revenge_killer = self.is_revenge_killer(
+                    pokemon,
+                    battle.opponent_active_pokemon,
+                    battle
+                    )
                 if revenge_killer:
                     revenge_value = 15
             ###
@@ -93,10 +98,12 @@ class AverageAI(Player):
             hp_value = self.evaluate_hp(pokemon)
             best_defence_value = self.evaluate_defences(pokemon, battle.opponent_active_pokemon)
             atk_value = self.evaluate_strongest_attack(pokemon, battle.opponent_active_pokemon, battle)
-            opponent_best_damage = self.find_opponent_best_damage(pokemon,
-                                                                  battle.opponent_active_pokemon,
-                                                                  battle,
-                                                                  strict=True)
+            opponent_best_damage = self.find_opponent_best_damage(
+                pokemon,
+                battle.opponent_active_pokemon,
+                battle,
+                strict=True
+                )
             opp_best_move_value = -self.damage_to_value_conversion(opponent_best_damage)
             if faster:
                 if is_forced:
@@ -119,13 +126,14 @@ class AverageAI(Player):
             if faster:
                 atk_value *= 1.5
             # Calculate final points
-            total_value = (type_value + 
-                           best_defence_value +
-                           atk_value + 
-                           hp_value +
-                           opp_best_move_value + 
-                           revenge_value
-                           )
+            total_value = (
+                type_value + 
+                best_defence_value +
+                atk_value + 
+                hp_value +
+                opp_best_move_value + 
+                revenge_value
+                )
             if total_value > best_value:
                 best_value = total_value
                 best_switch = pokemon
@@ -140,13 +148,19 @@ class AverageAI(Player):
         momentum_value = 2
         if battle.active_pokemon.fainted:
             return FAINTED
-        type_value = self.evaluate_type_advantage(battle.active_pokemon,
-                                                  battle.opponent_active_pokemon)
-        best_defence_value = self.evaluate_defences(battle.active_pokemon, 
-                                                    battle.opponent_active_pokemon)
-        atk_value = self.evaluate_strongest_attack(battle.active_pokemon, 
-                                                   battle.opponent_active_pokemon, 
-                                                   battle)
+        type_value = self.evaluate_type_advantage(
+            battle.active_pokemon,
+            battle.opponent_active_pokemon
+            )
+        best_defence_value = self.evaluate_defences(
+            battle.active_pokemon, 
+            battle.opponent_active_pokemon
+            )
+        atk_value = self.evaluate_strongest_attack(
+            battle.active_pokemon, 
+            battle.opponent_active_pokemon, 
+            battle
+            )
         if i_am_faster(battle.active_pokemon, battle.opponent_active_pokemon):
             atk_value *= 1.5
         total_value = type_value + best_defence_value + atk_value + momentum_value
@@ -156,20 +170,43 @@ class AverageAI(Player):
     def evaluate_move(self, move, my_pokemon, opponent_pokemon, battle):
         damage = calculate_damage(move, my_pokemon, opponent_pokemon, battle, True)
         value = self.damage_to_value_conversion(damage)
-        opponent_best_damage = self.find_opponent_best_damage(my_pokemon, 
-                                                              opponent_pokemon, 
-                                                              battle, 
-                                                              strict=False)
+        opponent_best_damage = self.find_opponent_best_damage(
+            my_pokemon, 
+            opponent_pokemon, 
+            battle, 
+            strict=False
+            )
         my_hp = calculate_current_hp(my_pokemon)
         hp_loss = opponent_best_damage / my_hp
-        boost_value = self.calculate_boost_value(move, hp_loss, my_pokemon, opponent_pokemon)
-        hazard_value = self.calculate_hazard_value(move, hp_loss, my_pokemon, battle)
-        status_value = self.calculate_status_value(move,
-                                                   hp_loss,
-                                                   my_pokemon,
-                                                   opponent_pokemon,
-                                                   battle)
-        value = value + boost_value + hazard_value + status_value
+        boost_value = self.calculate_boost_value(
+            move,
+            hp_loss,
+            my_pokemon,
+            opponent_pokemon
+            )
+        hazard_value = self.calculate_hazard_value(
+            move,
+            hp_loss,
+            my_pokemon,
+            opponent_pokemon,
+            battle
+            )
+        dehazard_value = self.calculate_dehazard_value(
+            self,
+            move,
+            hp_loss,
+            my_pokemon,
+            opponent_pokemon,
+            battle
+            )
+        status_value = self.calculate_status_value(
+            move,
+            hp_loss,
+            my_pokemon,
+            opponent_pokemon,
+            battle
+            )
+        value = value + boost_value + hazard_value + dehazard_value + status_value
         return value
 
 
@@ -197,12 +234,12 @@ class AverageAI(Player):
         return 0
 
 
-    def calculate_hazard_value(self, move, hp_loss, my_pokemon, battle):
+    def calculate_hazard_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
         hazard_value = 0
         fnt_counter = get_opponent_fnt_counter(battle)
         pokemon_left = 6 - fnt_counter
         # When opponent attack is not going to kill
-        if hp_loss < 1:
+        if i_am_faster(my_pokemon, opponent_pokemon) or hp_loss < 1:
             if (move.id == "stealthrock" and
                 SideCondition.STEALTH_ROCK not in battle.opponent_side_conditions):
                 # Function increasing value in the first turns of the fight
@@ -228,8 +265,23 @@ class AverageAI(Player):
         return hazard_value
     
 
-    def calculate_dehazard_value():
-        pass
+    def calculate_dehazard_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
+        dehazard_value = 0
+        fnt_counter = get_my_fnt_counter(battle)
+        pokemon_left = 6 - fnt_counter
+        if i_am_faster(my_pokemon, opponent_pokemon) or hp_loss < 1: 
+            if (SideCondition.STEALTH_ROCK in battle.side_conditions or
+                SideCondition.SPIKES in battle.side_conditions or
+                SideCondition.TOXIC_SPIKES in battle.side_conditions):
+                if move.id == "defog":
+                    # logarithmic function -> encourage hazard removal if 
+                    # more than one pokemon left
+                    dehazard_value = 15 * math.log(pokemon_left, 10)
+                elif (move.id == "rapidspin" and
+                    opponent_pokemon.type_1 != PokemonType.GHOST or
+                    opponent_pokemon.type_2 != PokemonType.GHOST):
+                    dehazard_value = 15 * math.log(pokemon_left, 10)
+        return dehazard_value
     
 
     def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
@@ -333,13 +385,12 @@ class AverageAI(Player):
                 target_pokemon.type_1 != PokemonType.STEEL or
                 target_pokemon.type_2 != PokemonType.STEEL):
                 if (target_pokemon.ability != "immunity" or
-                target_pokemon.ability != "magicguard" or
-                target_pokemon.ability != "comatose"):
+                    target_pokemon.ability != "magicguard" or
+                    target_pokemon.ability != "comatose"):
                     status_value = 7
                 if (target_pokemon.ability == "guts" or
-                  target_pokemon.ability == "marvelscale" or
-                  target_pokemon.ability == "quickfeet" or
-                  target_pokemon.ability == "flareboost"):
+                    target_pokemon.ability == "marvelscale" or
+                    target_pokemon.ability == "quickfeet"):
                     status_value = -5
         return status_value
 
@@ -350,13 +401,12 @@ class AverageAI(Player):
                 target_pokemon.type_1 != PokemonType.STEEL or
                 target_pokemon.type_2 != PokemonType.STEEL):
                 if (target_pokemon.ability != "immunity" or
-                target_pokemon.ability != "magicguard" or
-                target_pokemon.ability != "comatose"):
+                    target_pokemon.ability != "magicguard" or
+                    target_pokemon.ability != "comatose"):
                     status_value = 10
                 if (target_pokemon.ability == "guts" or
-                  target_pokemon.ability == "marvelscale" or
-                  target_pokemon.ability == "quickfeet" or
-                  target_pokemon.ability == "flareboost"):
+                    target_pokemon.ability == "marvelscale" or
+                    target_pokemon.ability == "quickfeet"):
                     status_value = -5
         return status_value
 
@@ -369,12 +419,13 @@ class AverageAI(Player):
         best_damage = 0
         for move_name in move_names:
             move = Move(move_name)
-            damage = calculate_damage(move,
-                                      opponent_pokemon,
-                                      my_pokemon,
-                                      battle,
-                                      False,
-                                      1)
+            damage = calculate_damage(
+                move,
+                opponent_pokemon,
+                my_pokemon,
+                battle,
+                False,
+                1)
             if damage > best_damage:
                 best_damage = damage
         # if VERBOSE:
