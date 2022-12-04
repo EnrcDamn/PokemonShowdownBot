@@ -303,12 +303,12 @@ class AverageAI(Player):
 
     def evaluate_sleep(self, status_value, move, target_pokemon, battle):
         # grass immunity to sleep powder from gen 6 onward
-        if move.id == "yawn" and target_pokemon.status == None:
+        if (move.id == "yawn" and
+            target_pokemon.status == None and
+            Effect.YAWN not in target_pokemon.effects):
             if (target_pokemon.ability != "vitalspirit" or
                 target_pokemon.ability != "insomnia" or
                 target_pokemon.ability != "comatose"):
-                if target_pokemon.first_turn:
-                    return 5
                 return 10
         if move.status == Status.SLP and target_pokemon.status == None:
             if (target_pokemon.ability != "vitalspirit" or
