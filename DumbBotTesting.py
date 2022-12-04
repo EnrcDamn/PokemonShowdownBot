@@ -228,6 +228,10 @@ class AverageAI(Player):
         return hazard_value
     
 
+    def calculate_dehazard_value():
+        pass
+    
+
     def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
         status_value = 0
         virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
@@ -315,7 +319,7 @@ class AverageAI(Player):
                 target_pokemon.ability != "insomnia" or
                 target_pokemon.ability != "comatose"):
                 if move.accuracy >= 1:
-                    status_value = 10
+                    status_value = 11
                 elif move.accuracy >= 0.7:
                     status_value = 8
                 else:
@@ -324,12 +328,36 @@ class AverageAI(Player):
 
     def evaluate_poison(self, status_value, move, target_pokemon):
         if move.status == Status.PSN and target_pokemon.status == None:
-            status_value = 10
+            if (target_pokemon.type_1 != PokemonType.POISON or
+                target_pokemon.type_2 != PokemonType.POISON or
+                target_pokemon.type_1 != PokemonType.STEEL or
+                target_pokemon.type_2 != PokemonType.STEEL):
+                if (target_pokemon.ability != "immunity" or
+                target_pokemon.ability != "magicguard" or
+                target_pokemon.ability != "comatose"):
+                    status_value = 7
+                if (target_pokemon.ability == "guts" or
+                  target_pokemon.ability == "marvelscale" or
+                  target_pokemon.ability == "quickfeet" or
+                  target_pokemon.ability == "flareboost"):
+                    status_value = -5
         return status_value
 
     def evaluate_toxic(self, status_value, move, target_pokemon):
         if move.status == Status.TOX and target_pokemon.status == None:
-            status_value = 10
+            if (target_pokemon.type_1 != PokemonType.POISON or
+                target_pokemon.type_2 != PokemonType.POISON or
+                target_pokemon.type_1 != PokemonType.STEEL or
+                target_pokemon.type_2 != PokemonType.STEEL):
+                if (target_pokemon.ability != "immunity" or
+                target_pokemon.ability != "magicguard" or
+                target_pokemon.ability != "comatose"):
+                    status_value = 10
+                if (target_pokemon.ability == "guts" or
+                  target_pokemon.ability == "marvelscale" or
+                  target_pokemon.ability == "quickfeet" or
+                  target_pokemon.ability == "flareboost"):
+                    status_value = -5
         return status_value
 
 
