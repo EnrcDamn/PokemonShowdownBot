@@ -358,6 +358,10 @@ class AverageAI(Player):
 
     def evaluate_sleep(self, status_value, move, target_pokemon, battle):
         # grass immunity to sleep powder from gen 6 onward
+        # Check in opponent team if someone is already sleeping -> sleep clause
+        for _, pokemon in battle.opponent_team.items():
+            if pokemon.status == Status.SLP:
+                return 0
         if (move.id == "yawn" and
             target_pokemon.status == None and
             Effect.YAWN not in target_pokemon.effects):
