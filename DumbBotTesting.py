@@ -192,7 +192,6 @@ class AverageAI(Player):
             battle
             )
         dehazard_value = self.calculate_dehazard_value(
-            self,
             move,
             hp_loss,
             my_pokemon,
