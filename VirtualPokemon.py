@@ -1,6 +1,9 @@
-﻿
+﻿from ParseUtilities import parse_unown
+
 class VirtualPokemon:
     def __init__(self, name, data):
+        if name[:5] == "unown":
+            name = name[:5]
         self.name = name
         self.data = data
         self.possible_abilities = self.data[name]["abilities"]
