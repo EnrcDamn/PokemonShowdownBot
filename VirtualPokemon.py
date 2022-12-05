@@ -1,5 +1,4 @@
-﻿from ParseUtilities import parse_unown
-
+﻿
 class VirtualPokemon:
     def __init__(self, name, data):
         if name[:5] == "unown":
