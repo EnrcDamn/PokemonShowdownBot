@@ -82,6 +82,17 @@ class AverageAI(Player):
         best_switch = None
         for pokemon in battle.available_switches:
             ###
+            # EXCEPTION: Shedinja
+            if pokemon.species == "shedinja":
+                switch_value = self.evaluate_shedinja(battle)
+                if not (SideCondition.STEALTH_ROCK in battle.side_conditions or
+                        SideCondition.SPIKES in battle.side_conditions or
+                        SideCondition.TOXIC_SPIKES in battle.side_conditions):
+                    return pokemon, switch_value
+                # if hazards on the ground:
+                return FAINTED
+            ### 
+            # NORMAL CALCULATION
             revenge_value = 0
             if is_forced:
                 revenge_killer = self.is_revenge_killer(
@@ -91,7 +102,6 @@ class AverageAI(Player):
                     )
                 if revenge_killer:
                     revenge_value = 15
-            ###
             # Points evaluation
             faster = i_am_faster(pokemon, battle.opponent_active_pokemon)
             type_value = self.evaluate_type_advantage(pokemon, battle.opponent_active_pokemon)
@@ -148,6 +158,8 @@ class AverageAI(Player):
         momentum_value = 2
         if battle.active_pokemon.fainted:
             return FAINTED
+        if battle.active_pokemon.species == "shedinja":
+            return self.evaluate_shedinja(battle)
         type_value = self.evaluate_type_advantage(
             battle.active_pokemon,
             battle.opponent_active_pokemon
@@ -580,6 +592,25 @@ class AverageAI(Player):
         # TODO: look for scarf or sash
         pass
 
-    def handle_shedinja():
-        # TODO: handle shedinja
-        pass
+    def evaluate_shedinja(self, battle):
+        # i have a shedinja
+        cannot_kill = True
+        my_pokemon = battle.active_pokemon
+        opponent_pokemon = battle.opponent_active_pokemon
+        if my_pokemon.species == "shedinja":
+            virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
+            for move in virtual_pokemon.get_possible_moves():
+                if my_pokemon.damage_multiplier(Move(move)) > 1:
+                    cannot_kill = False
+            if cannot_kill == True:
+                return 100
+            return FAINTED
+            
+        # opponent has a shedinja
+        if opponent_pokemon.species == "shedinja":
+            for move in battle.available_moves:
+                if opponent_pokemon.damage_multiplier(move) > 1:
+                    return 100
+        else:
+            return 0
+                    
