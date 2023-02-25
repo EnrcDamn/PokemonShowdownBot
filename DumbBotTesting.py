@@ -224,7 +224,7 @@ class AverageAI(Player):
             opponent_pokemon,
             battle
             )
-        value = value + boost_value + hazard_value + dehazard_value + status_value
+        value = value + boost_value + hazard_value + dehazard_value + heal_value + status_value
         return value
 
 
