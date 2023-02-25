@@ -210,6 +210,13 @@ class AverageAI(Player):
             opponent_pokemon,
             battle
             )
+        heal_value = self.calculate_heal_value(
+            move,
+            hp_loss,
+            my_pokemon,
+            opponent_pokemon,
+            battle
+        )
         status_value = self.calculate_status_value(
             move,
             hp_loss,
@@ -293,7 +300,15 @@ class AverageAI(Player):
                     opponent_pokemon.type_2 != PokemonType.GHOST):
                     dehazard_value = 15 * math.log(pokemon_left, 10)
         return dehazard_value
-    
+
+
+    def calculate_heal_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
+        heal_value = 0
+        hp_left = my_pokemon.current_hp_fraction
+        if "heal" in move.flags:
+            heal_value = (1 / hp_left**2.5) - 1
+        return heal_value
+
 
     def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
         status_value = 0
