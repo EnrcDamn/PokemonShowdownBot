@@ -4355,6 +4355,25 @@
       "uturn"
     ]
   },
+  "pikachu": {
+    "level": 88,
+    "abilities": [
+      "static"
+    ],
+    "items": [
+      "lightball"
+    ],
+    "moves": [
+      "encore",
+      "hiddenpowerice",
+      "nastyplot",
+      "substitute",
+      "thunderbolt"
+    ],
+    "evs": {
+      "atk": 0
+    }
+  },
   "pinsir": {
     "level": 88,
     "abilities": [
