@@ -618,6 +618,8 @@ class AverageAI(Player):
         if my_side:
             my_pokemon = pokemon
             opponent_pokemon = battle.opponent_active_pokemon
+            if self.is_revenge_killer(my_pokemon, opponent_pokemon, battle):
+                return 100
             virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
             # TODO: if all(?) the moves are known -> get_moves()
             for move in virtual_pokemon.get_possible_moves():
