@@ -143,10 +143,10 @@ class AverageAI(Player):
                     # if shedinja is untouchable
                     if shed_switch_value > 0:
                         return (pokemon, shed_switch_value)
-                    # else: shedinja value -> -inf
+                    # else: shedinja value -> negative
                     total_value = shed_switch_value
-                # if hazards on the ground: shed -> -inf
-                total_value = FAINTED
+                # if hazards on the ground: shed -> negative
+                total_value = -100
             ###
             if total_value > best_value:
                 best_value = total_value
@@ -308,6 +308,7 @@ class AverageAI(Player):
 
     def calculate_heal_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
         heal_value = 0
+        # TODO: if heal is useless (hp loss > heal) -> attack
         hp_left = my_pokemon.current_hp_fraction
         if "heal" in move.flags:
             heal_value = (1 / hp_left**2.5) - 1
@@ -625,7 +626,7 @@ class AverageAI(Player):
                     cannot_kill = False
             if cannot_kill == True:
                 return 100
-            return FAINTED
+            return -100
             
         # opponent has a shedinja
         if not my_side:
@@ -634,5 +635,5 @@ class AverageAI(Player):
                     if opponent_pokemon.damage_multiplier(move) > 1:
                         return 100
         else:
-            return FAINTED
+            return -100
                     
