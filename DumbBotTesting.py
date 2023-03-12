@@ -136,7 +136,7 @@ class AverageAI(Player):
                 )
             # EXCEPTION: Shedinja
             if pokemon.species == "shedinja":
-                shed_switch_value = self.evaluate_shedinja(battle, pokemon, True)
+                shed_switch_value = self.evaluate_shedinja(battle, pokemon, is_forced, True)
                 if not (SideCondition.STEALTH_ROCK in battle.side_conditions or
                         SideCondition.SPIKES in battle.side_conditions or
                         SideCondition.TOXIC_SPIKES in battle.side_conditions):
@@ -612,14 +612,15 @@ class AverageAI(Player):
         # TODO: look for scarf or sash
         pass
 
-    def evaluate_shedinja(self, battle, pokemon, my_side):
+    def evaluate_shedinja(self, battle, pokemon, is_forced, my_side):
         cannot_kill = True
         # i have a shedinja
         if my_side:
             my_pokemon = pokemon
             opponent_pokemon = battle.opponent_active_pokemon
-            if self.is_revenge_killer(my_pokemon, opponent_pokemon, battle):
-                return 100
+            if is_forced:
+                if self.is_revenge_killer(my_pokemon, opponent_pokemon, battle):
+                    return 100
             virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
             # TODO: if all(?) the moves are known -> get_moves()
             for move in virtual_pokemon.get_possible_moves():
