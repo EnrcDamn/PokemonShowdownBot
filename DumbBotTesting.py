@@ -42,13 +42,14 @@ class AverageAI(Player):
 
 
     def attack(self, battle):
-        # best_move = max(battle.available_moves, key=lambda move: move.base_power)
         best_move = battle.available_moves[0]
         best_value = 0 # dumb init
         ohko_moves = []
         for move in battle.available_moves:
+            # look if there are any ohko moves and save them in a list
             if self.can_kill(move, battle.active_pokemon, battle.opponent_active_pokemon, battle):
                 ohko_moves.append(move)
+            # normal calculation for best_move
             value = self.evaluate_move(
                 move,
                 battle.active_pokemon,
@@ -58,8 +59,15 @@ class AverageAI(Player):
             if value > best_value:
                 best_value = value
                 best_move = move
+        # If there is at least one ohko move, best_move = most accurate
         if len(ohko_moves) != 0:
             best_move = max(ohko_moves, key=lambda move: move.accuracy)
+        # Handle shedinja:
+        if battle.opponent_active_pokemon.species == "shedinja":
+            _, killing_move = self.find_shedinja_killing_move(
+                battle.opponent_active_pokemon, 
+                battle.available_moves)
+            best_move = killing_move
         if VERBOSE:
             print(f"Selected move: {best_move.id}, Value: {best_value}\n")
         return self.create_order(best_move)
@@ -162,12 +170,7 @@ class AverageAI(Player):
         momentum_value = 2
         if battle.active_pokemon.fainted:
             return FAINTED
-        if battle.active_pokemon.species == "shedinja":
-            return self.evaluate_shedinja(
-                battle,
-                battle.active_pokemon,
-                is_forced=False,
-                my_side=True)
+        
         type_value = self.evaluate_type_advantage(
             battle.active_pokemon,
             battle.opponent_active_pokemon
@@ -183,7 +186,23 @@ class AverageAI(Player):
             )
         if i_am_faster(battle.active_pokemon, battle.opponent_active_pokemon):
             atk_value *= 1.5
-        total_value = type_value + best_defence_value + atk_value + momentum_value
+        # Shedinja:
+        shedinja_value = 0
+        if battle.active_pokemon.species == "shedinja":
+            shedinja_value = self.evaluate_shedinja(
+                battle,
+                battle.active_pokemon,
+                is_forced=False,
+                my_side=True)
+        opponent_shedinja_value = 0
+        if battle.opponent_active_pokemon.species == "shedinja":
+            opponent_shedinja_value = self.evaluate_shedinja(
+                battle,
+                pokemon=None,
+                is_forced=None,
+                my_side=False)
+        total_value = (type_value + best_defence_value + atk_value + momentum_value +
+                       shedinja_value + opponent_shedinja_value)
         return total_value
     
 
@@ -617,7 +636,6 @@ class AverageAI(Player):
         pass
 
     def evaluate_shedinja(self, battle, pokemon, is_forced, my_side):
-        cannot_kill = True
         # i have a shedinja
         if my_side:
             my_pokemon = pokemon
@@ -630,38 +648,35 @@ class AverageAI(Player):
             possible_moves = virtual_pokemon.get_moves()
             if len(possible_moves) < 4:
                 possible_moves = virtual_pokemon.get_possible_moves()
-            for move in possible_moves:
-                if (Move(move).category != MoveCategory.STATUS and 
-                    my_pokemon.damage_multiplier(Move(move)) > 1):
-                    cannot_kill = False
-                # if PSN / BRN moves or leech seed
-                if (Move(move).status == Status.PSN or
-                    Move(move).status == Status.TOX or
-                    Move(move).status == Status.BRN) and\
-                    my_pokemon.status == None:
-                    cannot_kill = False
-                if move == "leechseed":
-                    cannot_kill = False
-            if cannot_kill == True:
+            can_kill, _ = self.find_shedinja_killing_move(pokemon, possible_moves)
+            if not can_kill:
                 return 100
             return -100
-            
         # else: opponent has a shedinja
-        for move in battle.available_moves:
-            if (Move(move).category != MoveCategory.STATUS and
-                opponent_pokemon.damage_multiplier(Move(move)) > 1):
-                cannot_kill = False
-            if (Move(move).status == Status.PSN or
-                Move(move).status == Status.TOX or
-                Move(move).status == Status.BRN) and\
-                opponent_pokemon.status == None:
-                cannot_kill = False
-            if move == "leechseed":
-                cannot_kill = False
-        if cannot_kill == False:
+        can_kill, _ = self.find_shedinja_killing_move(pokemon, battle.available_moves)
+        if can_kill:
             return 100
         return -100
                 
-                    
+    def find_shedinja_killing_move(self, pokemon, movepool):
+        can_kill = False
+        killing_move = None
+        for move in movepool:
+            if (Move(move).category != MoveCategory.STATUS and 
+                pokemon.damage_multiplier(Move(move)) > 1):
+                can_kill = True
+                killing_move = Move(move)
+            # if PSN / BRN moves or leech seed
+            elif (Move(move).status == Status.PSN or
+                Move(move).status == Status.TOX or
+                Move(move).status == Status.BRN) and\
+                pokemon.status == None:
+                can_kill = True
+                killing_move = Move(move)
+            elif move == "leechseed":
+                can_kill = True
+                killing_move = Move(move)
+        return can_kill, killing_move
+
                     
                     
