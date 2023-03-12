@@ -163,7 +163,11 @@ class AverageAI(Player):
         if battle.active_pokemon.fainted:
             return FAINTED
         if battle.active_pokemon.species == "shedinja":
-            return self.evaluate_shedinja(battle, battle.active_pokemon, True)
+            return self.evaluate_shedinja(
+                battle,
+                battle.active_pokemon,
+                is_forced=False,
+                my_side=True)
         type_value = self.evaluate_type_advantage(
             battle.active_pokemon,
             battle.opponent_active_pokemon
@@ -622,21 +626,42 @@ class AverageAI(Player):
                 if self.is_revenge_killer(my_pokemon, opponent_pokemon, battle):
                     return 100
             virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
-            # TODO: if all(?) the moves are known -> get_moves()
-            for move in virtual_pokemon.get_possible_moves():
+            # See opponent 4 moves (if you know all or them), else: possible_moves
+            possible_moves = virtual_pokemon.get_moves()
+            if len(possible_moves) < 4:
+                possible_moves = virtual_pokemon.get_possible_moves()
+            for move in possible_moves:
                 if (Move(move).category != MoveCategory.STATUS and 
                     my_pokemon.damage_multiplier(Move(move)) > 1):
+                    cannot_kill = False
+                # if PSN / BRN moves or leech seed
+                if (Move(move).status == Status.PSN or
+                    Move(move).status == Status.TOX or
+                    Move(move).status == Status.BRN) and\
+                    my_pokemon.status == None:
+                    cannot_kill = False
+                if move == "leechseed":
                     cannot_kill = False
             if cannot_kill == True:
                 return 100
             return -100
             
-        # opponent has a shedinja
-        if not my_side:
-            if opponent_pokemon.species == "shedinja":
-                for move in battle.available_moves:
-                    if opponent_pokemon.damage_multiplier(move) > 1:
-                        return 100
-        else:
-            return -100
+        # else: opponent has a shedinja
+        for move in battle.available_moves:
+            if (Move(move).category != MoveCategory.STATUS and
+                opponent_pokemon.damage_multiplier(Move(move)) > 1):
+                cannot_kill = False
+            if (Move(move).status == Status.PSN or
+                Move(move).status == Status.TOX or
+                Move(move).status == Status.BRN) and\
+                opponent_pokemon.status == None:
+                cannot_kill = False
+            if move == "leechseed":
+                cannot_kill = False
+        if cannot_kill == False:
+            return 100
+        return -100
+                
+                    
+                    
                     
