@@ -31,11 +31,12 @@ def calculate_current_hp(pokemon):
     return hp
 
 def calculate_atk(pokemon):
-    # TODO: consider burn
     attack = pokemon.base_stats["atk"] * 2
     attack += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
     attack = (attack * pokemon.level) / 100
     attack += 5
+    if pokemon.status == Status.BRN:
+        attack *= 0.5
     boost = boost_multiplier(pokemon, "atk")
     return attack * boost
     
@@ -119,7 +120,6 @@ def calculate_damage(move, user_pokemon, target_pokemon, battle, i_am_attacking,
     if damage != 0:
         damage += 2
     # Modifiers
-    damage = set_burn_conditions(damage, move, user_pokemon)
     damage = set_weather_conditions(damage, move, battle)
     damage = set_screens(damage, move, battle, i_am_attacking)
     damage = handle_double_targets(damage, move, battle)
@@ -198,11 +198,6 @@ def set_physical_or_special(damage, move, user_pokemon, target_pokemon):
             damage *= (calculate_spa(user_pokemon) / calculate_spd(target_pokemon))
         return damage
     return 0
-
-def set_burn_conditions(damage, move, user_pokemon):
-    if move.category == MoveCategory.PHYSICAL and user_pokemon.status == Status.BRN:
-        damage *= 0.5
-    return damage
 
 def set_screens(damage, move, battle, i_am_attacking):
     if i_am_attacking:
