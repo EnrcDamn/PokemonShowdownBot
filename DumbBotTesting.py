@@ -156,7 +156,8 @@ class AverageAI(Player):
                 shed_switch_value = self.evaluate_shedinja(battle, pokemon, is_forced, True)
                 if not (SideCondition.STEALTH_ROCK in battle.side_conditions or
                         SideCondition.SPIKES in battle.side_conditions or
-                        (SideCondition.TOXIC_SPIKES in battle.side_conditions and pokemon.status == None)):
+                        (SideCondition.TOXIC_SPIKES in battle.side_conditions and pokemon.status == None) or
+                        battle.weather == Weather.HAIL or battle.weather == Weather.SANDSTORM):
                     # if shedinja is untouchable
                     if shed_switch_value > 0:
                         return (pokemon, shed_switch_value)
@@ -650,6 +651,7 @@ class AverageAI(Player):
                 sweep_utilities["sweep_counter"] += 1
         else:
             sweep_utilities["sweep_counter"] = 0
+        # TODO: fix dict not updating
         print(sweep_utilities)
         return sweep_utilities["sweep_counter"]
 
@@ -660,8 +662,7 @@ class AverageAI(Player):
         return False
 
     def evaluate_shedinja(self, battle, pokemon, is_forced, my_side):
-        # TODO: consider hail and sandstorm
-        # i have a shedinja
+        # I have a shedinja
         if my_side:
             my_pokemon = pokemon
             opponent_pokemon = battle.opponent_active_pokemon
