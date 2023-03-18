@@ -15,6 +15,11 @@ from poke_env.environment.pokemon_type import PokemonType
 
 opponent_team = VirtualTeam()
 
+# TODO: put under init() in Player class for better design
+sweep_utilities = {
+    "sweep_counter": 0,
+    "sweep_turn": 0
+}
 VERBOSE = True
 FAINTED = float("-inf")
 
@@ -91,6 +96,7 @@ class AverageAI(Player):
         for pokemon in battle.available_switches:
             ###
             # NORMAL CALCULATION
+            faster = i_am_faster(pokemon, battle.opponent_active_pokemon)
             revenge_value = 0
             if is_forced:
                 revenge_killer = self.is_revenge_killer(
@@ -100,8 +106,11 @@ class AverageAI(Player):
                     )
                 if revenge_killer:
                     revenge_value = 15
+            sweep_block_value = 0
+            if is_forced and self.opponent_sweeping(battle):
+                if faster or pokemon.item == "focussash":
+                    sweep_block_value = 15
             # Points evaluation
-            faster = i_am_faster(pokemon, battle.opponent_active_pokemon)
             type_value = self.evaluate_type_advantage(pokemon, battle.opponent_active_pokemon)
             hp_value = self.evaluate_hp(pokemon)
             best_defence_value = self.evaluate_defences(pokemon, battle.opponent_active_pokemon)
@@ -630,10 +639,25 @@ class AverageAI(Player):
         if damage >= target_left_hp:
             return True
         return False
+    
+    def get_sweep_counter(self, battle):
+        # Sweep -> only if my pokemon are swept in subsequent turns
+        # Return number of swept pokemon in a row
+        current_turn = battle.turn
+        if battle.active_pokemon.status == Status.FNT:
+            if sweep_utilities["sweep_turn"] == current_turn - 1:
+                sweep_utilities["sweep_turn"] = current_turn
+                sweep_utilities["sweep_counter"] += 1
+        else:
+            sweep_utilities["sweep_counter"] = 0
+        print(sweep_utilities)
+        return sweep_utilities["sweep_counter"]
 
-    def handle_opponent_sweeper():
-        # TODO: look for scarf or sash
-        pass
+    def opponent_sweeping(self, battle):
+        sweep_counter = self.get_sweep_counter(battle)
+        if sweep_counter >= 2:
+            return True
+        return False
 
     def evaluate_shedinja(self, battle, pokemon, is_forced, my_side):
         # TODO: consider hail and sandstorm

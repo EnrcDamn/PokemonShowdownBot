@@ -64,7 +64,6 @@ def calculate_spd(pokemon):
     return sp_defense * boost
 
 def calculate_spe(pokemon):
-    # TODO: consider para and scarf
     speed = pokemon.base_stats["spe"] * 2
     speed += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
     speed = (speed * pokemon.level) / 100
