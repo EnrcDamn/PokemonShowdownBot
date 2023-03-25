@@ -109,7 +109,9 @@ class AverageAI(Player):
                     revenge_value = 15
             sweep_block_value = 0
             if is_forced and opponent_is_sweeping:
-                if faster or pokemon.item == "focussash":
+                if faster or (pokemon.item == "focussash" and not
+                             (SideCondition.STEALTH_ROCK in battle.side_conditions or
+                              SideCondition.SPIKES in battle.side_conditions)):
                     sweep_block_value = 15
             # Points evaluation
             type_value = self.evaluate_type_advantage(pokemon, battle.opponent_active_pokemon)
