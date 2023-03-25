@@ -12,21 +12,21 @@ from poke_env.environment.status import Status
 from poke_env.environment.effect import Effect
 from poke_env.environment.pokemon_type import PokemonType
 
-
-opponent_team = VirtualTeam()
-
-# TODO: put under init() in Player class for better design
-sweep_utilities = {
-    "sweep_counter": 0,
-    "sweep_turn": 0
-}
 VERBOSE = True
 FAINTED = float("-inf")
 
 class AverageAI(Player):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs) 
+        self.sweep_utilities = {
+            "sweep_counter": 0,
+            "sweep_turn": 0
+        }
+        self.opponent_team = VirtualTeam()
+    
     def choose_move(self, battle):
-        opponent_team.update_team(battle)
+        self.opponent_team.update_team(battle)
         if VERBOSE:
             print("\n#################################")
             print(f"TURN {battle.turn}")
@@ -353,7 +353,7 @@ class AverageAI(Player):
 
     def calculate_status_value(self, move, hp_loss, my_pokemon, opponent_pokemon, battle):
         status_value = 0
-        virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
+        virtual_pokemon = self.opponent_team.get_pokemon(opponent_pokemon.species)
         possible_moves = virtual_pokemon.get_possible_moves()
         if (opponent_pokemon.ability == "leafguard" and
             battle.weather == Weather.SUNNYDAY):
@@ -490,7 +490,7 @@ class AverageAI(Player):
 
 
     def find_opponent_best_damage(self, my_pokemon, opponent_pokemon, battle, strict):
-        pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
+        pokemon = self.opponent_team.get_pokemon(opponent_pokemon.species)
         move_names = pokemon.get_moves()
         if not strict and len(move_names) < 4:
             move_names = pokemon.get_possible_moves()
@@ -650,20 +650,20 @@ class AverageAI(Player):
         current_turn = battle.turn
         # if a pokemon is killed
         if battle.active_pokemon.status == Status.FNT:
-            if sweep_utilities["sweep_turn"] == current_turn - 1:
-                sweep_utilities["sweep_turn"] = current_turn
-                sweep_utilities["sweep_counter"] += 1
+            if self.sweep_utilities["sweep_turn"] == current_turn - 1:
+                self.sweep_utilities["sweep_turn"] = current_turn
+                self.sweep_utilities["sweep_counter"] += 1
             else:
-                sweep_utilities["sweep_turn"] = current_turn
-                sweep_utilities["sweep_counter"] = 1
+                self.sweep_utilities["sweep_turn"] = current_turn
+                self.sweep_utilities["sweep_counter"] = 1
         # If turn ends without kills: set counter to 0
         else:
             # (to avoid reset because counter pokmn not FNT)
-            if sweep_utilities["sweep_turn"] != current_turn - 1:
-                sweep_utilities["sweep_counter"] = 0
+            if self.sweep_utilities["sweep_turn"] != current_turn - 1:
+                self.sweep_utilities["sweep_counter"] = 0
         if VERBOSE:
-            print(sweep_utilities)
-        return sweep_utilities["sweep_counter"]
+            print(self.sweep_utilities)
+        return self.sweep_utilities["sweep_counter"]
 
     def opponent_sweeping(self, battle):
         sweep_counter = self.get_sweep_counter(battle)
@@ -679,7 +679,7 @@ class AverageAI(Player):
             if is_forced:
                 if self.is_revenge_killer(my_pokemon, opponent_pokemon, battle):
                     return 100
-            virtual_pokemon = opponent_team.get_pokemon(opponent_pokemon.species)
+            virtual_pokemon = self.opponent_team.get_pokemon(opponent_pokemon.species)
             # See opponent 4 moves (if you know all or them), else: possible_moves
             possible_moves = virtual_pokemon.get_moves()
             if len(possible_moves) < 4:
