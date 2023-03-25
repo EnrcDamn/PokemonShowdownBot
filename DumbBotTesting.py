@@ -93,6 +93,7 @@ class AverageAI(Player):
     def find_best_switch(self, battle, is_forced):
         best_value = FAINTED
         best_switch = None
+        opponent_is_sweeping = self.opponent_sweeping(battle)
         for pokemon in battle.available_switches:
             ###
             # NORMAL CALCULATION
@@ -107,7 +108,7 @@ class AverageAI(Player):
                 if revenge_killer:
                     revenge_value = 15
             sweep_block_value = 0
-            if is_forced and self.opponent_sweeping(battle):
+            if is_forced and opponent_is_sweeping:
                 if faster or pokemon.item == "focussash":
                     sweep_block_value = 15
             # Points evaluation
@@ -149,7 +150,8 @@ class AverageAI(Player):
                 atk_value + 
                 hp_value +
                 opp_best_move_value + 
-                revenge_value
+                revenge_value +
+                sweep_block_value
                 )
             # EXCEPTION: Shedinja
             if pokemon.species == "shedinja":
@@ -172,7 +174,8 @@ class AverageAI(Player):
             if VERBOSE:
                 print(f"\nName: {pokemon.species}\nType: {type_value}, Def: {best_defence_value}, "
                       f"HP: {hp_value}, Atk: {atk_value}, Opp DMG: {opp_best_move_value}, "
-                      f"Revenge: {revenge_value}, Is faster: {faster}, TOTAL: {total_value}")
+                      f"Revenge: {revenge_value}, Sweep block: {sweep_block_value}, Is faster: {faster}, "
+                      f"TOTAL: {total_value}")
         return (best_switch, best_value)
 
 
@@ -645,14 +648,21 @@ class AverageAI(Player):
         # Sweep -> only if my pokemon are swept in subsequent turns
         # Return number of swept pokemon in a row
         current_turn = battle.turn
+        # if a pokemon is killed
         if battle.active_pokemon.status == Status.FNT:
             if sweep_utilities["sweep_turn"] == current_turn - 1:
                 sweep_utilities["sweep_turn"] = current_turn
                 sweep_utilities["sweep_counter"] += 1
+            else:
+                sweep_utilities["sweep_turn"] = current_turn
+                sweep_utilities["sweep_counter"] = 1
+        # If turn ends without kills: set counter to 0
         else:
-            sweep_utilities["sweep_counter"] = 0
-        # TODO: fix dict not updating
-        print(sweep_utilities)
+            # (to avoid reset because counter pokmn not FNT)
+            if sweep_utilities["sweep_turn"] != current_turn - 1:
+                sweep_utilities["sweep_counter"] = 0
+        if VERBOSE:
+            print(sweep_utilities)
         return sweep_utilities["sweep_counter"]
 
     def opponent_sweeping(self, battle):
@@ -704,5 +714,5 @@ class AverageAI(Player):
                 killing_move = Move(move)
         return can_kill, killing_move
 
-                    
+
                     
