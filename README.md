@@ -12,25 +12,21 @@ I'm trying to constantly add more features and (slowly) keep it updated, but not
 The bot is made of different modules:
 
 `app.py`
-<ul>
+<div style="padding-left: 30px;">
 This is the main loop. It creates a bot, sends a challenge to showdown's server and then updates the event loop to keep track on everything that's happening.
-</ul>
+</div>
 
 `AverageAI.py`
-<ul>
+<div style="padding-left: 30px;">
 This module holds the main agent of the bot, `AverageAI`, which is a class inheriting from `Player`. `Player` has one abstract method, `choose_move(self, battle: Battle) -> str`, which is used to read data from a `Battle` object and return a move order. To learn more about agents, take a look at `poke-env`'s [documentation](https://poke-env.readthedocs.io/en/stable/max_damage_player.html#creating-a-player).
-</ul>
-<ul>
+
 The brain of the AI is a point evaluation system for both your current pokemon and the rest of your available team. It is carried out by the `should_i_switch` and `attack` methods. The evaluation has two possible outcomes:
 
 1) Find the best switch (if any) and switch out.
 2) If not, choose the best move (attacking or status) from your current pokemon;
-</ul>
-<ul>
+
 The switch value calculation is performed by the `find_best_switch` method, comparing all of your team with your current pokemon.
 For the current pokemon (and all other pokemon's) moves evaluation, the AI relies on the `evaluate_move` method.
-</ul>
-<ul>
 
 ```
 choose_move
@@ -41,16 +37,13 @@ choose_move
         └── attack ──> create_order(best_move)
                 └── evaluate_move
 ```
-</ul>
-<ul>
+
 The pokemon evaluation (`find_best_switch` and `current_pokemon_value`) is based on a lot of factors: type advantage, current hp, atk-def ratio, moves, opponent's possible advantages (such as supereffective moves) and so on.
-</ul>
-<ul>
+
 The move evaluation (`evaluate_move`) on the other hand is aimed to find the best move for the current turn (attacking, status, healing, boost, hazards) based on the current battleground situation, current hp, opponent condition and other special cases.
-</ul>
-<ul>
+
 For now, even if a lot of variables are taken into account, it's still an only half-decent and not too smart AI, hence the name. :)
-</ul>
+</div>
 
 
 `BattleUtilities.py`
