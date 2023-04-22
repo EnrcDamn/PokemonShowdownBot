@@ -12,12 +12,12 @@ I'm trying to constantly add more features and (slowly) keep it updated, but not
 The bot is made of different modules:
 
 `app.py`
-<div style="padding-left: 30px;">
+
 This is the main loop. It creates a bot, sends a challenge to showdown's server and then updates the event loop to keep track on everything that's happening.
-</div>
+::
 
 `AverageAI.py`
-<div style="padding-left: 30px;">
+<div style="padding: 30px;">
 This module holds the main agent of the bot, `AverageAI`, which is a class inheriting from `Player`. `Player` has one abstract method, `choose_move(self, battle: Battle) -> str`, which is used to read data from a `Battle` object and return a move order. To learn more about agents, take a look at `poke-env`'s [documentation](https://poke-env.readthedocs.io/en/stable/max_damage_player.html#creating-a-player).
 
 The brain of the AI is a point evaluation system for both your current pokemon and the rest of your available team. It is carried out by the `should_i_switch` and `attack` methods. The evaluation has two possible outcomes:
