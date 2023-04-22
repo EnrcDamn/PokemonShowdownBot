@@ -1,6 +1,6 @@
 ﻿import asyncio
 
-from DumbBotTesting import AverageAI
+from AverageAI import AverageAI
 from poke_env import ShowdownServerConfiguration, PlayerConfiguration
 
 
