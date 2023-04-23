@@ -40,7 +40,7 @@ A list of functions and utilities for calculation of damage, pokémon stats, boo
 ### `OdditiesUtilities.py`
 TODO: will keep all the oddities, special cases and peculiar moves and pokemon (such as: Shedinja, the sweep counter, etc.) to reduce complexity from the `AverageAI` agent.
 
-### VirtualTeam.py`
+### `VirtualTeam.py`
 
 
 ### `VirtualPokemon.py`
