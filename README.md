@@ -18,8 +18,8 @@ This is the main loop. It creates a bot, sends a challenge to showdown's server 
 This module holds the **main agent** of the bot, `AverageAI`, which is a class inheriting from `Player`. `Player` has one abstract method, `choose_move(self, battle: Battle) -> str`, which is used at every query of the main loop to read data from a `Battle` object and return a move order. To learn more about agents, take a look at `poke-env`'s [documentation](https://poke-env.readthedocs.io/en/stable/max_damage_player.html#creating-a-player). 
 
 The brain of the AI is a **point evaluation system** for both your current pokemon and the rest of your available team. It is carried out by the `should_i_switch` and `attack` methods. The evaluation has two possible outcomes: 
-1) Find the best switch (if any) and switch out. 
-2) If not, choose the best move (attacking or status) from your current pokemon; 
+1) Find the best switch (if any) and switch out; 
+2) If not, choose the best move (attacking or status) from your current pokemon.
 
 The switch value calculation is performed over the opponent by the `find_best_switch` method, comparing all of your team with your current pokemon. For the current pokemon (and all other pokemon's) moves evaluation, the AI relies on the `evaluate_move` method.
 ```
