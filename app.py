@@ -1,15 +1,18 @@
 ﻿import asyncio
-
+import argparse
 from AverageAI import AverageAI
 from poke_env import ShowdownServerConfiguration, PlayerConfiguration
 
 
-async def main():
+async def main(args):
     # We create a player for gen 4 random battles
     player = AverageAI(
         player_configuration=PlayerConfiguration("your_username", "your_password"),
         server_configuration=ShowdownServerConfiguration,
-        battle_format="gen4randombattle"
+        battle_format="gen4randombattle",
+        # battle_format="gen4ou",
+
+        **vars(args)
     )
 
     # Sending challenges to "your_username"
@@ -35,5 +38,8 @@ async def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Set the verbosity for print of log messages.')
+    parser.add_argument('--verbose', action=argparse.BooleanOptionalAction, required=True)
 
-    asyncio.get_event_loop().run_until_complete(main())
+    args = parser.parse_args()
+    asyncio.get_event_loop().run_until_complete(main(args))

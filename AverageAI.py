@@ -12,22 +12,23 @@ from poke_env.environment.status import Status
 from poke_env.environment.effect import Effect
 from poke_env.environment.pokemon_type import PokemonType
 
-VERBOSE = True
 FAINTED = float("-inf")
 
 class AverageAI(Player):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, verbose, *args, **kwargs):
+        self.verbose = verbose
         super().__init__(*args, **kwargs) 
         self.sweep_utilities = {
             "sweep_counter": 0,
             "sweep_turn": 0
         }
+        print(self.verbose)
         self.opponent_team = VirtualTeam()
     
     def choose_move(self, battle):
         self.opponent_team.update_team(battle)
-        if VERBOSE:
+        if self.verbose:
             print("\n#################################")
             print(f"TURN {battle.turn}")
             print(f"My Pokemon: {battle.active_pokemon}")
@@ -40,7 +41,7 @@ class AverageAI(Player):
             return self.create_order(ohko_move)
         switch = self.should_i_switch(battle)
         if switch is not None:
-            if VERBOSE:
+            if self.verbose:
                 print(f"Switch to: {switch.species}\n")
             return self.create_order(switch)
         return self.attack(battle)
@@ -73,7 +74,7 @@ class AverageAI(Player):
                 battle.opponent_active_pokemon, 
                 battle.available_moves)
             best_move = killing_move
-        if VERBOSE:
+        if self.verbose:
             print(f"Selected move: {best_move.id}, Value: {best_value}\n")
         return self.create_order(best_move)
 
@@ -83,7 +84,7 @@ class AverageAI(Player):
         best_switch, switch_value = self.find_best_switch(battle, is_forced=(current_value==FAINTED))
         if best_switch == None:
             return None
-        if VERBOSE:
+        if self.verbose:
             print(f"\nActive pkmn value: {current_value}, Best switch: {best_switch.species} ({switch_value})\n")
         if switch_value > current_value:
             return best_switch
@@ -173,7 +174,7 @@ class AverageAI(Player):
             if total_value > best_value:
                 best_value = total_value
                 best_switch = pokemon
-            if VERBOSE:
+            if self.verbose:
                 print(f"\nName: {pokemon.species}\nType: {type_value}, Def: {best_defence_value}, "
                       f"HP: {hp_value}, Atk: {atk_value}, Opp DMG: {opp_best_move_value}, "
                       f"Revenge: {revenge_value}, Sweep block: {sweep_block_value}, Is faster: {faster}, "
@@ -509,7 +510,7 @@ class AverageAI(Player):
                 1)
             if damage > best_damage:
                 best_damage = damage
-        # if VERBOSE:
+        # if self.verbose:
         #     print(f"Opponent moves: {move_names}, Best value: {best_damage}\n")
         return best_damage
 
@@ -628,7 +629,7 @@ class AverageAI(Player):
             return None
         for move in ohko_moves:
             if move.priority > 0:
-                if VERBOSE:
+                if self.verbose:
                     print(f"\nOHKO priority: {move.id}\n")
                 return move
         if not i_am_faster(battle.active_pokemon, battle.opponent_active_pokemon):
@@ -637,7 +638,7 @@ class AverageAI(Player):
         if len(ohko_moves) == 0:
             return None
         best_ohko_move = max(ohko_moves, key=lambda move: move.accuracy)
-        if VERBOSE:
+        if self.verbose:
             print(f"\nOHKO simple move: {best_ohko_move.id}\n")
         return best_ohko_move
     
@@ -665,7 +666,7 @@ class AverageAI(Player):
             # (to avoid reset because counter pokmn not FNT)
             if self.sweep_utilities["sweep_turn"] != current_turn - 1:
                 self.sweep_utilities["sweep_counter"] = 0
-        if VERBOSE:
+        if self.verbose:
             print(self.sweep_utilities)
         return self.sweep_utilities["sweep_counter"]
 
