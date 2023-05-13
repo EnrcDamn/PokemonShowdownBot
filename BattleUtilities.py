@@ -20,7 +20,7 @@ def calculate_stats_from_evs(evs):
 
 def calculate_full_hp(pokemon):
     hp = pokemon.base_stats["hp"] * 2
-    hp += calculate_stats_from_evs(RANDOM_BATTLE_EVs + 1) + RANDOM_BATTLE_IVs
+    hp += calculate_stats_from_evs(RANDOM_BATTLE_EVS + 1) + RANDOM_BATTLE_IVS
     hp = (hp * pokemon.level) / 100
     hp = hp + pokemon.level + 10
     return hp
@@ -32,7 +32,7 @@ def calculate_current_hp(pokemon):
 
 def calculate_atk(pokemon):
     attack = pokemon.base_stats["atk"] * 2
-    attack += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
+    attack += calculate_stats_from_evs(RANDOM_BATTLE_EVS) + RANDOM_BATTLE_IVS
     attack = (attack * pokemon.level) / 100
     attack += 5
     if pokemon.status == Status.BRN:
@@ -42,7 +42,7 @@ def calculate_atk(pokemon):
     
 def calculate_def(pokemon):
     defense = pokemon.base_stats["def"] * 2
-    defense += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
+    defense += calculate_stats_from_evs(RANDOM_BATTLE_EVS) + RANDOM_BATTLE_IVS
     defense = (defense * pokemon.level) / 100
     defense += 5
     boost = boost_multiplier(pokemon, "def")
@@ -50,7 +50,7 @@ def calculate_def(pokemon):
 
 def calculate_spa(pokemon):
     sp_attack = pokemon.base_stats["spa"] * 2
-    sp_attack += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
+    sp_attack += calculate_stats_from_evs(RANDOM_BATTLE_EVS) + RANDOM_BATTLE_IVS
     sp_attack = (sp_attack * pokemon.level) / 100
     sp_attack += 5
     boost = boost_multiplier(pokemon, "spa")
@@ -58,7 +58,7 @@ def calculate_spa(pokemon):
 
 def calculate_spd(pokemon):
     sp_defense = pokemon.base_stats["spd"] * 2
-    sp_defense += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
+    sp_defense += calculate_stats_from_evs(RANDOM_BATTLE_EVS) + RANDOM_BATTLE_IVS
     sp_defense = (sp_defense * pokemon.level) / 100
     sp_defense += 5
     boost = boost_multiplier(pokemon, "spd")
@@ -66,7 +66,7 @@ def calculate_spd(pokemon):
 
 def calculate_spe(pokemon):
     speed = pokemon.base_stats["spe"] * 2
-    speed += calculate_stats_from_evs(RANDOM_BATTLE_EVs) + RANDOM_BATTLE_IVs
+    speed += calculate_stats_from_evs(RANDOM_BATTLE_EVS) + RANDOM_BATTLE_IVS
     speed = (speed * pokemon.level) / 100
     speed += 5
     if Effect.SLOW_START in pokemon.effects:
