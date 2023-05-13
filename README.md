@@ -55,8 +55,9 @@ pip install -r requirements.txt
 ```
 Register an account on [pokemonshowdown.com](https://pokemonshowdown.com/), then set up `player_configuration` with your account credentials `("your_username", "your_password")` in `app.py` and run it:
 ```
-python .\app.py
+python .\app.py --verbose
 ```
+You must specify `--verbose` or `--no-verbose` as an argument, depending if you want to display the log prints and live messages about the game status.
 
 
 ## State of work
