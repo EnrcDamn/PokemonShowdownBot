@@ -4,6 +4,7 @@ from BattleUtilities import get_opponent_fnt_counter, get_my_fnt_counter
 from BattleUtilities import i_am_faster, calculate_damage
 from BattleUtilities import calculate_atk, calculate_spa, calculate_def
 from BattleUtilities import calculate_spd, calculate_current_hp
+from BattleUtilities import FAINTED
 from VirtualTeam import VirtualTeam
 from poke_env.environment.move import Move, MoveCategory
 from poke_env.environment.weather import Weather
@@ -11,8 +12,6 @@ from poke_env.environment.side_condition import SideCondition
 from poke_env.environment.status import Status
 from poke_env.environment.effect import Effect
 from poke_env.environment.pokemon_type import PokemonType
-
-FAINTED = float("-inf")
 
 class AverageAI(Player):
 
@@ -23,7 +22,6 @@ class AverageAI(Player):
             "sweep_counter": 0,
             "sweep_turn": 0
         }
-        print(self.verbose)
         self.opponent_team = VirtualTeam()
     
     def choose_move(self, battle):
@@ -291,7 +289,8 @@ class AverageAI(Player):
                 # little damage to our pokemon
                 boost_booster = (1.7 * hp_loss) ** 3
                 boost_value /= (boost_booster + 0.05)  # add 0.05 to avoid divide by zero
-                print(boost_value)
+                if self.verbose:
+                    print(boost_value)
                 return boost_value
         return 0
 
@@ -578,7 +577,8 @@ class AverageAI(Player):
     def handle_odd_moves(self, move, best_move, user_pokemon, opponent_pokemon, battle):
         # TODO: handle odd moves behavior (explosion, solarbeam, ...)
         if move.id == "fakeout" and user_pokemon.first_turn == True:
-            print("Go straight with Fake out")
+            if self.verbose:
+                print("Go straight with Fake out")
             return move
         # TODO: fix explosion
         # if i'm slower, explode when hp left are < 1/2

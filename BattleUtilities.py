@@ -5,9 +5,9 @@ from poke_env.environment.pokemon_type import PokemonType
 from poke_env.environment.effect import Effect
 from poke_env.environment.side_condition import SideCondition
 
-
-RANDOM_BATTLE_EVs = 84
-RANDOM_BATTLE_IVs = 31
+FAINTED = float("-inf")
+RANDOM_BATTLE_EVS = 84
+RANDOM_BATTLE_IVS = 31
 
 RNG_PESSIMISTIC = 0.85
 RNG_OPTIMISTIC = 1
