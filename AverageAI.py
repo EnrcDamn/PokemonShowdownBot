@@ -574,21 +574,25 @@ class AverageAI(Player):
         hp_value = (1000 / (hp + 10))**0.9 - 4
         return -hp_value
 
-    def handle_odd_moves(self, move, best_move, user_pokemon, opponent_pokemon, battle):
+    def handle_odd_moves(self, move, user_pokemon, opponent_pokemon, battle):
         # TODO: handle odd moves behavior (explosion, solarbeam, ...)
         if move.id == "fakeout" and user_pokemon.first_turn == True:
             if self.verbose:
                 print("Go straight with Fake out")
             return move
         # TODO: fix explosion
-        # if i'm slower, explode when hp left are < 1/2
-        elif move.id == "explosion" and move == best_move and user_pokemon.current_hp_fraction < (1/2):
-            if not i_am_faster(user_pokemon, opponent_pokemon):
-                return move
-            else:
-                # or if i'm faster, explode when hp left is < 1/4
-                if user_pokemon.current_hp_fraction < (1/4):
-                    return move
+        elif move.id == "explosion":
+            if user_pokemon.current_hp_fraction > (1/2):
+                best_value = 0
+                for m in battle.available_moves:
+                    value = self.evaluate_move(
+                        m,
+                        battle.active_pokemon,
+                        battle.opponent_active_pokemon,
+                        battle
+                        )
+                    if value > best_value:
+                        best_value = value
         # solarbeam
         elif (move.id == "solarbeam" and
               battle.weather != Weather.SUNNYDAY):
@@ -603,6 +607,7 @@ class AverageAI(Player):
               battle.weather != Weather.RAINDANCE and
               user_pokemon.current_hp_fraction > (2/3)):
             return move
+        # substitute + focus punch
         # transform
         # pursuit
         return None
