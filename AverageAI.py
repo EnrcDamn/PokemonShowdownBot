@@ -1,17 +1,21 @@
 ﻿import math
 from poke_env.player.player import Player
-from BattleUtilities import get_opponent_fnt_counter, get_my_fnt_counter
-from BattleUtilities import i_am_faster, calculate_damage
-from BattleUtilities import calculate_atk, calculate_spa, calculate_def
-from BattleUtilities import calculate_spd, calculate_current_hp
-from BattleUtilities import FAINTED
-from VirtualTeam import VirtualTeam
 from poke_env.environment.move import Move, MoveCategory
 from poke_env.environment.weather import Weather
 from poke_env.environment.side_condition import SideCondition
 from poke_env.environment.status import Status
 from poke_env.environment.effect import Effect
 from poke_env.environment.pokemon_type import PokemonType
+
+from BattleUtilities import get_opponent_fnt_counter, get_my_fnt_counter
+from BattleUtilities import i_am_faster, calculate_damage
+from BattleUtilities import calculate_atk, calculate_spa, calculate_def
+from BattleUtilities import calculate_spd, calculate_current_hp
+from BattleUtilities import FAINTED
+
+from OdditiesUtilities import ODD_MOVES
+
+from VirtualTeam import VirtualTeam
 
 class AverageAI(Player):
 
@@ -34,42 +38,30 @@ class AverageAI(Player):
             print("#################################")
         if not battle.available_moves:
             return self.create_order(self.find_best_switch(battle, is_forced=True)[0])
+        # If I'm sure I can kill (faster + one sure ohko move):
         ohko_move = self.kill_if_ohko(battle)
         if ohko_move is not None:
             return self.create_order(ohko_move)
+        # Otherwise, evaluate switching...
         switch = self.should_i_switch(battle)
         if switch is not None:
             if self.verbose:
                 print(f"Switch to: {switch.species}\n")
             return self.create_order(switch)
+        # ... or attacking.
         return self.attack(battle)
 
 
     def attack(self, battle):
-        best_move = battle.available_moves[0]
-        best_value = 0 # dumb init
-        ohko_moves = []
-        for move in battle.available_moves:
-            # look if there are any ohko moves and save them in a list
-            if self.can_kill(move, battle.active_pokemon, battle.opponent_active_pokemon, battle):
-                ohko_moves.append(move)
-            # normal calculation for best_move
-            value = self.evaluate_move(
-                move,
-                battle.active_pokemon,
-                battle.opponent_active_pokemon,
-                battle
-                )
-            if value > best_value:
-                best_value = value
-                best_move = move
-        # If there is at least one ohko move, best_move = most accurate
-        if len(ohko_moves) != 0:
-            best_move = max(ohko_moves, key=lambda move: move.accuracy)
+        # Find the best move within my moveset:
+        best_move, best_value = self.lookup_best_move(battle, no_explosion=False)
+        # Handle odd moves:
+        odd_moves_result = self.handle_odd_moves(best_move, battle.active_pokemon, battle)
+        best_move = odd_moves_result if best_move.id in ODD_MOVES and odd_moves_result is not None else best_move
         # Handle shedinja:
         if battle.opponent_active_pokemon.species == "shedinja":
             _, killing_move = self.find_shedinja_killing_move(
-                battle.opponent_active_pokemon, 
+                battle.opponent_active_pokemon,
                 battle.available_moves)
             best_move = killing_move
         if self.verbose:
@@ -220,6 +212,35 @@ class AverageAI(Player):
         return total_value
     
 
+    def lookup_best_move(self, battle, no_explosion):
+        best_move = battle.available_moves[0]
+        best_value = 0 # dumb init
+        ohko_moves = []
+        for move in battle.available_moves:
+            if no_explosion:
+                if move.id == "explosion" or move.id == "selfdestruct":
+                    continue
+            # Look if there are any ohko moves and save them in a list
+            if self.can_kill(move, battle.active_pokemon, battle.opponent_active_pokemon, battle):
+                ohko_moves.append(move)
+            # Normal calculation for best_move
+            value = self.evaluate_move(
+                move,
+                battle.active_pokemon,
+                battle.opponent_active_pokemon,
+                battle
+                )
+            if value > best_value:
+                best_value = value
+                best_move = move
+        # If there is at least one ohko move, best_move = most accurate
+        # Note: this is in the situation when we are slower, otherwise the ohko
+        #       would already be executed with kill_if_ohko 
+        if len(ohko_moves) != 0:
+            best_move = max(ohko_moves, key=lambda move: move.accuracy)
+        return best_move, best_value
+
+
     def evaluate_move(self, move, my_pokemon, opponent_pokemon, battle):
         damage = calculate_damage(move, my_pokemon, opponent_pokemon, battle, True)
         value = self.damage_to_value_conversion(damage)
@@ -265,6 +286,7 @@ class AverageAI(Player):
             opponent_pokemon,
             battle
             )
+        # TODO: implement status heal value? Like aromatherapy, currently in ODD_MOVES
         value = value + boost_value + hazard_value + dehazard_value + heal_value + status_value
         return value
 
@@ -334,6 +356,7 @@ class AverageAI(Player):
             if (SideCondition.STEALTH_ROCK in battle.side_conditions or
                 SideCondition.SPIKES in battle.side_conditions or
                 SideCondition.TOXIC_SPIKES in battle.side_conditions):
+                # TODO: check this, not working well
                 if move.id == "defog":
                     # logarithmic function -> encourage hazard removal if 
                     # more than one pokemon left
@@ -574,31 +597,28 @@ class AverageAI(Player):
         hp_value = (1000 / (hp + 10))**0.9 - 4
         return -hp_value
 
-    def handle_odd_moves(self, move, user_pokemon, opponent_pokemon, battle):
-        # TODO: handle odd moves behavior (explosion, solarbeam, ...)
+    def handle_odd_moves(self, move, user_pokemon, battle):
+        # TODO: Handle priority selected ODD_MOVES around the code!!!!
+        if move.id not in ODD_MOVES:
+            return None
         if move.id == "fakeout" and user_pokemon.first_turn == True:
             if self.verbose:
                 print("Go straight with Fake out")
             return move
-        # TODO: fix explosion
-        elif move.id == "explosion":
-            if user_pokemon.current_hp_fraction > (1/2):
-                best_value = 0
-                for m in battle.available_moves:
-                    value = self.evaluate_move(
-                        m,
-                        battle.active_pokemon,
-                        battle.opponent_active_pokemon,
-                        battle
-                        )
-                    if value > best_value:
-                        best_value = value
+        elif move.id == "explosion" or move.id == "selfdestruct":
+            # Explode only if low on health, otherwise select another move
+            if user_pokemon.current_hp_fraction > (1/3):
+                select_another_move, _ = self.lookup_best_move(battle, no_explosion=True)
+                return select_another_move
+            return move
         # solarbeam
-        elif (move.id == "solarbeam" and
-              battle.weather != Weather.SUNNYDAY):
-            for m in battle.available_moves:
-                if m.id == "sunnyday":
-                    return m
+        elif move.id == "solarbeam":
+            if battle.weather != Weather.SUNNYDAY:
+                for m in battle.available_moves:
+                    if m.id == "sunnyday":
+                        return m
+            else: # TODO: maybe else not necessary
+                return move
         elif (move.id == "sunnyday" and
               battle.weather != Weather.SUNNYDAY and
               user_pokemon.current_hp_fraction > (2/3)):
@@ -607,9 +627,11 @@ class AverageAI(Player):
               battle.weather != Weather.RAINDANCE and
               user_pokemon.current_hp_fraction > (2/3)):
             return move
-        # substitute + focus punch
+        # suckerpunch
+        # substitute + focuspunch
         # transform
         # pursuit
+        # aromatherapy
         return None
     
 
@@ -624,6 +646,7 @@ class AverageAI(Player):
 
 
     def kill_if_ohko(self, battle):
+        # TODO: Handle ODD_MOVES here
         if not battle.available_moves:
             return None
         ohko_moves = []
@@ -637,6 +660,7 @@ class AverageAI(Player):
                 if self.verbose:
                     print(f"\nOHKO priority: {move.id}\n")
                 return move
+        # I have to be faster
         if not i_am_faster(battle.active_pokemon, battle.opponent_active_pokemon):
             return None
         ohko_moves = list(filter(lambda move: move.priority == 0, ohko_moves))
