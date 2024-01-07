@@ -11,7 +11,7 @@ RANDOM_BATTLE_IVS = 31
 
 RNG_PESSIMISTIC = 0.85
 RNG_OPTIMISTIC = 1
-RNG_MEAN = (0.85 + 1) / 2
+RNG_MEAN = (RNG_PESSIMISTIC + RNG_OPTIMISTIC) / 2
 
 
 def calculate_stats_from_evs(evs):
