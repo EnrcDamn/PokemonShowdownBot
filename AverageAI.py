@@ -628,7 +628,8 @@ class AverageAI(Player):
             return move
         # suckerpunch
         elif (move.id == "suckerpunch"):
-            return move
+            if self.has_only_attacking_moves(self, battle.opponent_active_pokemon):
+                return move
         # focuspunch
         elif (move.id == "focuspunch" and
               not Effect.SUBSTITUTE in user_pokemon.effects):
