@@ -657,6 +657,21 @@ class AverageAI(Player):
         return False
 
 
+    def has_only_attacking_moves(self, pokemon):
+        # Returns whether we know for sure that a pokemon has only attacking moves
+        # Useful in some situations: e.g. Sucker Punch, Substitute, ...
+        virtual_pokemon = self.opponent_team.get_pokemon(pokemon.species)
+        # See opponent 4 moves (if you know all or them), else: possible_moves
+        possible_moves = virtual_pokemon.get_moves()
+        if len(possible_moves) < 4:
+            possible_moves = virtual_pokemon.get_possible_moves()
+
+        for move in possible_moves:
+            if move.category == MoveCategory.STATUS:
+                return False
+        return True
+
+
     def kill_if_ohko(self, battle):
         # TODO: Handle ODD_MOVES here
         if not battle.available_moves:
@@ -669,6 +684,11 @@ class AverageAI(Player):
             return None
         for move in ohko_moves:
             if move.priority > 0:
+                if move.id == "fakeout" and not battle.active_pokemon.first_turn:
+                    return None
+                if move.id == "suckerpunch":
+                    if not self.has_only_attacking_moves(self, battle.opponent_active_pokemon):
+                        return None
                 if self.verbose:
                     print(f"\nOHKO priority: {move.id}\n")
                 return move
