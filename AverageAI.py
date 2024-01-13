@@ -617,8 +617,7 @@ class AverageAI(Player):
                 for m in battle.available_moves:
                     if m.id == "sunnyday":
                         return m
-            else: # TODO: maybe else not necessary
-                return move
+            return move
         elif (move.id == "sunnyday" and
               battle.weather != Weather.SUNNYDAY and
               user_pokemon.current_hp_fraction > (2/3)):
@@ -628,12 +627,25 @@ class AverageAI(Player):
               user_pokemon.current_hp_fraction > (2/3)):
             return move
         # suckerpunch
-        # substitute + focuspunch
+        elif (move.id == "suckerpunch"):
+            return move
+        # focuspunch
+        elif (move.id == "focuspunch" and
+              not Effect.SUBSTITUTE in user_pokemon.effects):
+            for m in battle.available_moves:
+                if m.id == "substitute":
+                    return m
+            return move
+        # substitute
+        elif (move.id == "substitute" and
+              not Effect.SUBSTITUTE in user_pokemon.effects):
+            return m
+
         # transform
         # pursuit
         # aromatherapy
         return None
-    
+
 
     def is_revenge_killer(self, user_pokemon, target_pokemon, battle):
         for _, move in user_pokemon.moves.items():
