@@ -630,7 +630,7 @@ class AverageAI(Player):
         # suckerpunch
         elif (move.id == "suckerpunch"):
             # If opponent is faster -> will try to kill me
-            if (self.has_only_attacking_moves(battle.opponent_active_pokemon) or
+            if (self.has_only_attacking_moves(battle.opponent_active_pokemon) and
                 not i_am_faster(user_pokemon, battle.opponent_active_pokemon)):
                 return move
         # focuspunch
@@ -653,6 +653,8 @@ class AverageAI(Player):
         # pursuit
         # aromatherapy
         # rest + sleeptalk
+        elif (move.id == "rest"):
+            pass
         return None
 
 
@@ -676,7 +678,7 @@ class AverageAI(Player):
             possible_moves = virtual_pokemon.get_possible_moves()
 
         for move in possible_moves:
-            if move.category == MoveCategory.STATUS:
+            if Move(move).category == MoveCategory.STATUS:
                 return False
         return True
 
