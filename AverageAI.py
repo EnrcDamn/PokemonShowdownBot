@@ -72,6 +72,7 @@ class AverageAI(Player):
     def should_i_switch(self, battle):
         current_value = self.current_pokemon_value(battle)
         best_switch, switch_value = self.find_best_switch(battle, is_forced=(current_value==FAINTED))
+        # If substitute is on, DO NOT SWITCH
         if best_switch == None:
             return None
         if self.verbose:
@@ -615,7 +616,7 @@ class AverageAI(Player):
         elif move.id == "solarbeam":
             if battle.weather != Weather.SUNNYDAY:
                 for m in battle.available_moves:
-                    if m.id == "sunnyday":
+                    if m.id == "sunnyday" and user_pokemon.current_hp_fraction > (2/3):
                         return m
             return move
         elif (move.id == "sunnyday" and
@@ -628,23 +629,30 @@ class AverageAI(Player):
             return move
         # suckerpunch
         elif (move.id == "suckerpunch"):
-            if self.has_only_attacking_moves(self, battle.opponent_active_pokemon):
+            # If opponent is faster -> will try to kill me
+            if (self.has_only_attacking_moves(battle.opponent_active_pokemon) or
+                not i_am_faster(user_pokemon, battle.opponent_active_pokemon)):
                 return move
         # focuspunch
         elif (move.id == "focuspunch" and
               not Effect.SUBSTITUTE in user_pokemon.effects):
             for m in battle.available_moves:
-                if m.id == "substitute":
+                if m.id == "substitute" and user_pokemon.current_hp_fraction > (1/2):
                     return m
             return move
         # substitute
         elif (move.id == "substitute" and
               not Effect.SUBSTITUTE in user_pokemon.effects):
-            return m
+            if (i_am_faster(user_pokemon, battle.opponent_active_pokemon) and
+                user_pokemon.current_hp_fraction > (1/4)):
+                return m
+            elif(user_pokemon.current_hp_fraction > (1/3)):
+                return m
 
         # transform
         # pursuit
         # aromatherapy
+        # rest + sleeptalk
         return None
 
 
@@ -688,7 +696,7 @@ class AverageAI(Player):
                 if move.id == "fakeout" and not battle.active_pokemon.first_turn:
                     return None
                 if move.id == "suckerpunch":
-                    if not self.has_only_attacking_moves(self, battle.opponent_active_pokemon):
+                    if not self.has_only_attacking_moves(battle.opponent_active_pokemon):
                         return None
                 if self.verbose:
                     print(f"\nOHKO priority: {move.id}\n")
